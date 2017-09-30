@@ -12,13 +12,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Principal extends AppCompatActivity {
@@ -86,7 +83,7 @@ public class Principal extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.buscar:
-                Intent prueba = new Intent(this, Pruebas.class);
+                Intent prueba = new Intent(this, Buscar.class);
                 startActivity(prueba);
                 Toast.makeText(this,"Buscar Comida",Toast.LENGTH_SHORT).show();
                 return true;

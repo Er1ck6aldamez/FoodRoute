@@ -4,12 +4,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Pruebas extends AppCompatActivity {
+public class Buscar extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pruebas);
+        setContentView(R.layout.activity_buscar);
+
 
         //creacion de la fecha atras
         ActionBar actionBar = getSupportActionBar();
@@ -26,4 +27,6 @@ public class Pruebas extends AppCompatActivity {
         finish();
         return true;
     }
+
 }
+
