@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.hd.foodroute_v1.Principal">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Opc 1"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/opcDos"
+        android:orderInCategory="100"
+        android:title="Opc 2"
+        app:showAsAction="never" />
+
+
+    <item
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Buscar"
+        android:id="@+id/buscar"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+</menu>
+
