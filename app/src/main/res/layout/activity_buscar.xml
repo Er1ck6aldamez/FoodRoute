@@ -33,12 +33,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="89dp"
-        android:text="TextView"
+        android:text="@string/txtPresupuesto"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/txtPresupuesto" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -59,12 +58,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="25dp"
-        android:text="TextView"
+        android:text="@string/txtTipodeComida"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        tools:text="@string/txtTipodeComida" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <TextView
         android:id="@+id/textView6"
@@ -73,12 +71,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="33dp"
-        android:text="TextView"
+        android:text="@string/txtTipodePago"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2"
-        tools:text="@string/txtTipodePago" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -98,12 +95,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="-7dp"
-            android:text="RadioButton"
+            android:text="@string/txtEfectivo"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            tools:text="@string/txtEfectivo" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <RadioButton
             android:id="@+id/radioButton3"
@@ -112,12 +108,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="0dp"
-            android:text="RadioButton"
+            android:text="@string/txtTarjeta"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton2"
-            tools:text="@string/txtTarjeta" />
+            app:layout_constraintTop_toBottomOf="@+id/radioButton2" />
 
         <RadioButton
             android:id="@+id/radioButton4"
@@ -126,12 +121,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="0dp"
-            android:text="RadioButton"
+            android:text="@string/txtAmbos"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton3"
-            tools:text="@string/txtAmbos" />
+            app:layout_constraintTop_toBottomOf="@+id/radioButton3" />
 
     </RadioGroup>
 
@@ -142,12 +136,11 @@
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="Button"
+        android:text="@string/txtBuscar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="@string/txtBuscar" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -155,9 +148,8 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="140dp"
         android:layout_marginTop="35dp"
-        android:text="TextView"
+        android:text="@string/txtTituloBuscar"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/txtTituloBuscar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
