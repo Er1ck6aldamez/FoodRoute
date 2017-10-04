@@ -13,7 +13,6 @@
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
