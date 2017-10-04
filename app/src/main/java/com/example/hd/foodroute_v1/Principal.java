@@ -56,15 +56,6 @@ public class Principal extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
     }
 
 
@@ -144,9 +135,9 @@ public class Principal extends AppCompatActivity {
                 case 0:
                     return "INICIO";
                 case 1:
-                    return "HISTORIAL";
+                    return "RESTAURANTES";
                 case 2:
-                    return "TERCERA";
+                    return "HISTORIAL";
             }
             return null;
         }
