@@ -5,4 +5,14 @@
     <string name="txtPlatillo">Plato: </string>
     <string name="txtLugar">Lugar: </string>
     <string name="txtPrecio">Precio: $</string>
+
+    <string name="txtTituloBuscar">Nueva Busqueda </string>
+    <string name="txtPresupuesto">Presupuesto </string>
+    <string name="txtTipodeComida">Tipo de Comida </string>
+    <string name="txtTipodePago">Forma de Pago </string>
+    <string name="txtEfectivo">Efectivo </string>
+    <string name="txtTarjeta">Tarjeta </string>
+    <string name="txtAmbos">Ambos </string>
+    <string name="txtBuscar">Buscar</string>
+
 </resources>
