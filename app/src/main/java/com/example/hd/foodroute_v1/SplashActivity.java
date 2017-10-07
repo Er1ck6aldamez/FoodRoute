@@ -11,7 +11,8 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class SplashActivity extends AppCompatActivity{
-    private final int DURACION_SPLASH = 1000; // 3 segundos
+    // 1 segundo tarda en abrir
+    private final int DURACION_SPLASH = 1000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
