@@ -4,10 +4,10 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="txtPlatillo">Plato: </string>
     <string name="txtLugar">Lugar: </string>
-    <string name="txtPrecio">Precio: $</string>
+    <string name="txtPrecio">Precio: </string>
     <string name="txtRestaurante">Nombre: </string>
     <string name="txtHoraApertura">Hora apertura: </string>
-    <string name="txtServicio">Servicio a domicilio: </string>
+    <string name="txtHoraCierre">Hora cierre: </string>
 
     <string name="txtTituloBuscar">Nueva Busqueda </string>
     <string name="txtPresupuesto">Presupuesto </string>

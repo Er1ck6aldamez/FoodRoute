@@ -1,5 +1,6 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -16,7 +17,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import Clases.AdaptadorSugerencias;
+import Clases.Sugerencias;
+import cz.msebera.android.httpclient.Header;
 
 public class Principal extends AppCompatActivity {
     /**
@@ -27,6 +42,9 @@ public class Principal extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
+
+
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -41,6 +59,7 @@ public class Principal extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         //felcha atras
        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -53,10 +72,15 @@ public class Principal extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+
+
     }
+
+
 
 
     @Override
@@ -89,10 +113,6 @@ public class Principal extends AppCompatActivity {
             return true;
 
         }
-
-
-
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
