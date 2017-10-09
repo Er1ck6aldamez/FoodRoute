@@ -43,7 +43,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txtServicio"
+        android:text="@string/txtHoraCierre"
         app:layout_constraintLeft_toRightOf="@+id/imageView2"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtServicioDomicilio"
+        android:id="@+id/txtHoraCierre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"

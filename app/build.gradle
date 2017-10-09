@@ -27,5 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.github.snowdream.android:smartimageview:0.0.2'
     testCompile 'junit:junit:4.12'
 }
