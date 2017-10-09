@@ -55,16 +55,16 @@ public class TbInicio extends Fragment{
         lstSugerencias.setAdapter(adaptador);
     }
     private void CargarDatos() {
-//        final ProgressDialog progressDialog=new ProgressDialog(getActivity().getApplicationContext());
-//        progressDialog.setMessage("Cargando...");
-//        progressDialog.show();
+        final ProgressDialog progressDialog=new ProgressDialog(getActivity());
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
 
         AsyncHttpClient client=new AsyncHttpClient();
         client.get("https://foodroute.000webhostapp.com/proyecto/obtener_sugerencias.php", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
-                    //progressDialog.dismiss();
+                    progressDialog.dismiss();
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         JSONArray jsonArray=json.getJSONArray("alumnos");
