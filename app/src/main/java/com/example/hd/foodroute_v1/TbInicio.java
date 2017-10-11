@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -33,6 +34,7 @@ public class TbInicio extends Fragment{
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
     private ArrayList<Sugerencias> array;
     private AdaptadorSugerencias adaptador;
+    private ProgressBar prgCircular;
 
 
     @Override
@@ -50,21 +52,21 @@ public class TbInicio extends Fragment{
         array=new ArrayList<>();
         adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
         lstSugerencias = (ListView)getView().findViewById(R.id.lstSugerencias);
+        prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
 
         CargarDatos();
         lstSugerencias.setAdapter(adaptador);
     }
     private void CargarDatos() {
-        final ProgressDialog progressDialog=new ProgressDialog(getActivity());
-        progressDialog.setMessage("Cargando...");
-        progressDialog.show();
 
         AsyncHttpClient client=new AsyncHttpClient();
         client.get("https://foodroute.000webhostapp.com/proyecto/obtener_sugerencias.php", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
-                    progressDialog.dismiss();
+
+                    prgCircular.setVisibility(View.INVISIBLE);
+                    lstSugerencias.setVisibility(View.VISIBLE);
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         JSONArray jsonArray=json.getJSONArray("alumnos");
@@ -89,7 +91,7 @@ public class TbInicio extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
+                Toast.makeText(getActivity().getApplicationContext(),"Error al cargar lista",Toast.LENGTH_SHORT).show();
             }
         });
     }
