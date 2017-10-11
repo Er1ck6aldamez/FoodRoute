@@ -1,10 +1,7 @@
 package com.example.hd.foodroute_v1;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -15,23 +12,8 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import android.widget.ListView;
 import android.widget.Toast;
-
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import Clases.AdaptadorSugerencias;
-import Clases.Sugerencias;
-import cz.msebera.android.httpclient.Header;
 
 public class Principal extends AppCompatActivity {
     /**
@@ -132,12 +114,13 @@ public class Principal extends AppCompatActivity {
                     return tbini;
 
                 case 1:
+                    TbRestaurantes tbres = new TbRestaurantes();
+                    return tbres;
+
+                case 2:
                     TbHistorial tbhis = new TbHistorial();
                     return tbhis;
 
-                case 2:
-                    TbTercera tbter = new TbTercera();
-                    return tbter;
                 default:
                     return null;
             }
