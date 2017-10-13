@@ -57,6 +57,7 @@ public class TbInicio extends Fragment{
         CargarDatos();
         lstSugerencias.setAdapter(adaptador);
     }
+
     private void CargarDatos() {
 
         AsyncHttpClient client=new AsyncHttpClient();
