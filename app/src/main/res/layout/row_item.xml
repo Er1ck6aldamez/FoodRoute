@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/iv_arrow"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_hardware_keyboard_arrow_down"
+            android:src="@mipmap/ic_launcher"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
