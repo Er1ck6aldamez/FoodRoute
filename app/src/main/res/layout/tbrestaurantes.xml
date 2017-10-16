@@ -11,10 +11,15 @@
     <ExpandableListView
         android:id="@+id/simpleExpandableListView"
         android:layout_width="fill_parent"
-
+        android:visibility="invisible"
         android:layout_height="fill_parent"
         android:dividerHeight="1dp"
         android:listSelector="@color/colorAccent"
         android:childDivider="@color/colorPrimary"/>
+    <ProgressBar
+        android:id="@+id/prgCircular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

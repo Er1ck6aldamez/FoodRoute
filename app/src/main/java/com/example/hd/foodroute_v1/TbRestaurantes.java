@@ -4,17 +4,14 @@ package com.example.hd.foodroute_v1;
  * Created by hd on 25/9/2017.
  */
 
-import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -26,14 +23,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 import Clases.AdaptadorExpandible;
-import Clases.AdapterRestaurantes;
 import Clases.ChildInfo;
 import Clases.GroupInfo;
-import Clases.Item;
-import Clases.Sugerencias;
 import cz.msebera.android.httpclient.Header;
 
 public class TbRestaurantes extends Fragment{
@@ -43,6 +36,7 @@ public class TbRestaurantes extends Fragment{
 
     private AdaptadorExpandible listAdapter;
     private ExpandableListView simpleExpandableListView;
+    private ProgressBar prgCircular;
 
 
     @Override
@@ -65,7 +59,7 @@ public class TbRestaurantes extends Fragment{
         listAdapter = new AdaptadorExpandible(getActivity().getApplicationContext(),deptList);
         // attach the adapter to the expandable list view
         simpleExpandableListView.setAdapter(listAdapter);
-
+        prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
         //expand all the Groups
         //expandAll();
 
@@ -129,7 +123,7 @@ public class TbRestaurantes extends Fragment{
                         for(int i=0;i<jsonArray.length();i++){
                             addProduct("Comida a la carta",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
-
+                        listAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -157,7 +151,7 @@ public class TbRestaurantes extends Fragment{
                         for(int i=0;i<jsonArray.length();i++){
                             addProduct("Comida mexicana",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
-
+                        listAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -185,7 +179,7 @@ public class TbRestaurantes extends Fragment{
                         for(int i=0;i<jsonArray.length();i++){
                             addProduct("Comida a la vista",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
-
+                        listAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -205,7 +199,8 @@ public class TbRestaurantes extends Fragment{
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
-
+                    prgCircular.setVisibility(View.INVISIBLE);
+                    simpleExpandableListView.setVisibility(View.VISIBLE);
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
