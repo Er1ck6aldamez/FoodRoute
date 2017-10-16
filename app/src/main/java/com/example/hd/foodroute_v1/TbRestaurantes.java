@@ -224,6 +224,64 @@ public class TbRestaurantes extends Fragment{
             }
         });
 
+        client.get("https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_esp.php?especialidad=Comida tradicional", new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if(statusCode==200){
+                    prgCircular.setVisibility(View.INVISIBLE);
+                    simpleExpandableListView.setVisibility(View.VISIBLE);
+                    try {
+                        JSONObject json=new JSONObject(new String(responseBody));
+                        JSONArray jsonArray=json.getJSONArray("restaurantes");
+                        //sug=new Sugerencias[jsonArray.length()];
+                        for(int i=0;i<jsonArray.length();i++){
+                            addProduct("Comida tradicional",jsonArray.getJSONObject(i).getString("Nombre"));
+                        }
+                        listAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    Toast.makeText(getActivity().getApplicationContext(),"Error al cargar lista",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                addProduct("Comida tradicional","Error al cargar lista");
+                listAdapter.notifyDataSetChanged();
+            }
+        });
+
+        client.get("https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_esp.php?especialidad=Comida rapida", new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if(statusCode==200){
+                    prgCircular.setVisibility(View.INVISIBLE);
+                    simpleExpandableListView.setVisibility(View.VISIBLE);
+                    try {
+                        JSONObject json=new JSONObject(new String(responseBody));
+                        JSONArray jsonArray=json.getJSONArray("restaurantes");
+                        //sug=new Sugerencias[jsonArray.length()];
+                        for(int i=0;i<jsonArray.length();i++){
+                            addProduct("Comida rápida",jsonArray.getJSONObject(i).getString("Nombre"));
+                        }
+                        listAdapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    Toast.makeText(getActivity().getApplicationContext(),"Error al cargar lista",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                addProduct("Comida rápida","Error al cargar lista");
+                listAdapter.notifyDataSetChanged();
+            }
+        });
+
         /*addProduct("Comida mexicana","PolyMorphism");
         addProduct("Comida mexicana","Collections");
 
