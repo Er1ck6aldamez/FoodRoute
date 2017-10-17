@@ -4,9 +4,14 @@ package com.example.hd.foodroute_v1;
  * Created by hd on 25/9/2017.
  */
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +43,9 @@ public class TbRestaurantes extends Fragment{
     private ExpandableListView simpleExpandableListView;
     private ProgressBar prgCircular;
 
+    private SwipeRefreshLayout swipeContainer;
+
+    private boolean recargar=false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +57,8 @@ public class TbRestaurantes extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        swipeContainer = (SwipeRefreshLayout)getView().findViewById(R.id.contenedor);
 
         // add data for displaying in expandable list view
         loadData();
@@ -62,6 +72,21 @@ public class TbRestaurantes extends Fragment{
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
         //expand all the Groups
         //expandAll();
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+                loadData();
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_green_light,
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
 
         // setOnChildClickListener listener for child row click
         simpleExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -124,6 +149,7 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida a la carta",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        recargar=true;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -136,6 +162,9 @@ public class TbRestaurantes extends Fragment{
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 addProduct("Comida a la carta","Error al cargar lista");
                 listAdapter.notifyDataSetChanged();
+                prgCircular.setVisibility(View.INVISIBLE);
+                //simpleExpandableListView.setVisibility(View.VISIBLE);recargar=true;
+                recargar=true;
             }
         });
 
@@ -152,6 +181,7 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida mexicana",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        recargar=true;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -164,6 +194,9 @@ public class TbRestaurantes extends Fragment{
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 addProduct("Comida mexicana","Error al cargar lista");
                 listAdapter.notifyDataSetChanged();
+                prgCircular.setVisibility(View.INVISIBLE);
+                //simpleExpandableListView.setVisibility(View.VISIBLE);
+                recargar=true;
             }
         });
 
@@ -180,6 +213,7 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida a la vista",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        recargar=true;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -192,6 +226,9 @@ public class TbRestaurantes extends Fragment{
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 addProduct("Comida a la vista","Error al cargar lista");
                 listAdapter.notifyDataSetChanged();
+                prgCircular.setVisibility(View.INVISIBLE);
+                //simpleExpandableListView.setVisibility(View.VISIBLE);
+                recargar=true;
             }
         });
 
@@ -199,8 +236,7 @@ public class TbRestaurantes extends Fragment{
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
-                    prgCircular.setVisibility(View.INVISIBLE);
-                    simpleExpandableListView.setVisibility(View.VISIBLE);
+
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
@@ -209,6 +245,7 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida a la parrilla",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        recargar=true;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -221,6 +258,9 @@ public class TbRestaurantes extends Fragment{
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 addProduct("Comida a la parrilla","Error al cargar lista");
                 listAdapter.notifyDataSetChanged();
+                prgCircular.setVisibility(View.INVISIBLE);
+                //simpleExpandableListView.setVisibility(View.VISIBLE);
+                recargar=true;
             }
         });
 
@@ -228,8 +268,7 @@ public class TbRestaurantes extends Fragment{
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
-                    prgCircular.setVisibility(View.INVISIBLE);
-                    simpleExpandableListView.setVisibility(View.VISIBLE);
+
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
@@ -238,6 +277,7 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida tradicional",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        recargar=true;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -250,6 +290,9 @@ public class TbRestaurantes extends Fragment{
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 addProduct("Comida tradicional","Error al cargar lista");
                 listAdapter.notifyDataSetChanged();
+                prgCircular.setVisibility(View.INVISIBLE);
+                //simpleExpandableListView.setVisibility(View.VISIBLE);
+                recargar=true;
             }
         });
 
@@ -267,6 +310,7 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida rápida",jsonArray.getJSONObject(i).getString("Nombre"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        recargar=true;
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -279,6 +323,9 @@ public class TbRestaurantes extends Fragment{
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 addProduct("Comida rápida","Error al cargar lista");
                 listAdapter.notifyDataSetChanged();
+                prgCircular.setVisibility(View.INVISIBLE);
+                simpleExpandableListView.setVisibility(View.VISIBLE);
+                recargar=true;
             }
         });
 
@@ -287,7 +334,7 @@ public class TbRestaurantes extends Fragment{
 
         addProduct("Comida a la vista","PolyMorphism");
         addProduct("Comida a la vista","Collections");*/
-
+        swipeContainer.setRefreshing(false);
     }
 
     //here we maintain our products in various departments
@@ -306,6 +353,10 @@ public class TbRestaurantes extends Fragment{
         }
 
         //get the children for the group
+        if(recargar) {
+            headerInfo.getProductList().clear();
+            recargar=false;
+        }
         ArrayList<ChildInfo> productList = headerInfo.getProductList();
         //size of the children list
         int listSize = productList.size();
@@ -324,6 +375,4 @@ public class TbRestaurantes extends Fragment{
 
         return groupPosition;
     }
-
-
 }
