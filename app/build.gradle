@@ -18,9 +18,13 @@ android {
         }
     }
 }
+repositories {
+    // add below
+    maven { url "https://maven.google.com" }
+}
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -28,6 +32,8 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.android.support:support-v4:25.3.1'
     compile 'com.github.snowdream.android:smartimageview:0.0.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
 }
