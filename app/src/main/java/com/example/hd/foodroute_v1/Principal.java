@@ -82,7 +82,7 @@ public class Principal extends AppCompatActivity {
             case R.id.buscar:
                 Intent prueba = new Intent(this, Buscar.class);
                 startActivity(prueba);
-                Toast.makeText(this,"Buscar Comida",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,"Buscar Comida",Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.opcDos:
