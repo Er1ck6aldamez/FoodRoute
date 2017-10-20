@@ -109,18 +109,12 @@
                         android:text="@string/txtEfectivo" />
 
                     <RadioButton
-                        android:id="@+id/rbtnTarjeta"
+                        android:id="@+id/rbtnEfecivo_Tarjeta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/txtTarjeta" />
 
-                    <RadioButton
-                        android:id="@+id/rbtnAmbos"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/txtAmbos" />
                 </RadioGroup>
             </LinearLayout>
 

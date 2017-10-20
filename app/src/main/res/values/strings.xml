@@ -14,7 +14,7 @@
     <string name="txtTipodeComida">Tipo de Comida </string>
     <string name="txtTipodePago">Forma de Pago </string>
     <string name="txtEfectivo">Efectivo </string>
-    <string name="txtTarjeta">Tarjeta </string>
+    <string name="txtTarjeta"> Efectivo y Tarjeta </string>
     <string name="txtAmbos">Ambos </string>
     <string name="txtBuscar">Buscar</string>
 
