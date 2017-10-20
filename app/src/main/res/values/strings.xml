@@ -17,5 +17,6 @@
     <string name="txtTarjeta"> Efectivo y Tarjeta </string>
     <string name="txtAmbos">Ambos </string>
     <string name="txtBuscar">Buscar</string>
+    <string name="txtActualizado">Información actualizada a 20/10/2017</string>
 
 </resources>
