@@ -1,5 +1,7 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.example.hd.foodroute_v1.R.id.prgCircular;
 
 public class Buscar extends AppCompatActivity {
 
@@ -123,6 +127,8 @@ public class Buscar extends AppCompatActivity {
             }
             return estado;
     }
+
+
 
 
 

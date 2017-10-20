@@ -1,5 +1,8 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -83,13 +86,7 @@ public class Resultados extends AppCompatActivity {
                                 adaptador.notifyDataSetChanged();
                             }
                         }else{
-                            Sugerencias sugeren = new Sugerencias();
-                            sugeren.setNombrePlatillo("Sin datos");
-                            sugeren.setLugar("Sin datos");
-                            sugeren.setPrecio("Sin datos");
-                            sugeren.setImagen("Sin datos");
-                            array.add(sugeren);
-                            adaptador.notifyDataSetChanged();
+                            Dialog();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -128,13 +125,7 @@ public class Resultados extends AppCompatActivity {
                                     adaptador.notifyDataSetChanged();
                                 }
                             }else{
-                                Sugerencias sugeren = new Sugerencias();
-                                sugeren.setNombrePlatillo("Sin datos");
-                                sugeren.setLugar("Sin datos");
-                                sugeren.setPrecio("Sin datos");
-                                sugeren.setImagen("Sin datos");
-                                array.add(sugeren);
-                                adaptador.notifyDataSetChanged();
+                                Dialog();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -147,9 +138,36 @@ public class Resultados extends AppCompatActivity {
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                     //Toast.makeText(getActivity().getApplicationContext(),"Error al cargar lista",Toast.LENGTH_SHORT).show();
+
                 }
             });
         }
+    }
+
+
+
+
+    public void Dialog() {
+        AlertDialog.Builder Alerta = new AlertDialog.Builder(this);
+        Alerta.setTitle("Sin Resultados").
+                setMessage("Realizar nueva Busqueda").
+                setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       finish();
+                    }
+                }).
+                setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        Intent res = new Intent(Resultados.this, Principal.class);
+                        startActivity(res);
+                    }
+                });
+
+        AlertDialog alertDialog = Alerta.create();
+        alertDialog.show();
     }
 
     //para terminar la activity (flecha atras)
