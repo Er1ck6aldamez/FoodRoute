@@ -3,7 +3,9 @@ package com.example.hd.foodroute_v1;
 /**
  * Created by hd on 25/9/2017.
  */
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -93,7 +95,33 @@ public class TbInicio extends Fragment{
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 //Toast.makeText(getActivity().getApplicationContext(),"Error al cargar lista",Toast.LENGTH_SHORT).show();
+
+                Dialog();
+
             }
         });
     }
+
+    public void Dialog() {
+        AlertDialog.Builder Alerta = new AlertDialog.Builder(getContext());
+        Alerta.setTitle("Fallo al cargar Sugerencias").
+        setMessage("Volever a cargar datos").
+        setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                CargarDatos();
+            }
+        }).
+        setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                prgCircular.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        AlertDialog alertDialog = Alerta.create();
+        alertDialog.show();
+    }
+
 }

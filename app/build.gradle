@@ -36,4 +36,5 @@ dependencies {
     compile 'com.github.snowdream.android:smartimageview:0.0.2'
     compile 'com.google.android.gms:play-services-maps:11.0.4'
     testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
 }
