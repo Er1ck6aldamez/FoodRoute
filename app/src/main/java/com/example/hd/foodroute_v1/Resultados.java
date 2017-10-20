@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -32,6 +33,8 @@ public class Resultados extends AppCompatActivity {
     private ProgressBar prgCircular;
     private String ruta,ruta2;
 
+    private TextView lblActualizado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class Resultados extends AppCompatActivity {
         prgCircular = (ProgressBar)findViewById(R.id.prgCircular);
         ruta="https://foodroute.000webhostapp.com/proyecto/obtener_comidas.php?especialidad="+tipo_comida+" && presupuesto="+presupuesto;
         ruta2="https://foodroute.000webhostapp.com/proyecto/obtener_comidas_efectivo.php?especialidad="+tipo_comida+" && presupuesto="+presupuesto;
+        lblActualizado=(TextView)findViewById(R.id.lblPrecio);
 
         CargarDatos();
         lstSugerencias.setAdapter(adaptador);
@@ -62,6 +66,7 @@ public class Resultados extends AppCompatActivity {
 
                     prgCircular.setVisibility(View.INVISIBLE);
                     lstSugerencias.setVisibility(View.VISIBLE);
+                    lblActualizado.setVisibility(View.VISIBLE);
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         String estado=json.getString("estado");
@@ -106,6 +111,7 @@ public class Resultados extends AppCompatActivity {
                     if(statusCode==200){
                         prgCircular.setVisibility(View.INVISIBLE);
                         lstSugerencias.setVisibility(View.VISIBLE);
+                        lblActualizado.setVisibility(View.VISIBLE);
                         try {
                             JSONObject json=new JSONObject(new String(responseBody));
                             String estado=json.getString("estado");

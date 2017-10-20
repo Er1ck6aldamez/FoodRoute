@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -37,7 +38,7 @@ public class TbInicio extends Fragment{
     private ArrayList<Sugerencias> array;
     private AdaptadorSugerencias adaptador;
     private ProgressBar prgCircular;
-
+    private TextView lblActualizado;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +56,7 @@ public class TbInicio extends Fragment{
         adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
         lstSugerencias = (ListView)getView().findViewById(R.id.lstSugerencias);
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
+        lblActualizado=(TextView)getView().findViewById(R.id.lblPrecios);
 
         CargarDatos();
         lstSugerencias.setAdapter(adaptador);
@@ -70,6 +72,7 @@ public class TbInicio extends Fragment{
 
                     prgCircular.setVisibility(View.INVISIBLE);
                     lstSugerencias.setVisibility(View.VISIBLE);
+                    lblActualizado.setVisibility(View.VISIBLE);
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         JSONArray jsonArray=json.getJSONArray("alumnos");
