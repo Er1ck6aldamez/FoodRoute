@@ -72,7 +72,7 @@
         android:id="@+id/txtPrecio"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="136dp"
         android:text="TextView"
         android:textColor="@color/colorTexto"
         app:layout_constraintLeft_toLeftOf="parent"
