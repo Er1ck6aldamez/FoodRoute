@@ -42,7 +42,8 @@
         </activity>
         <activity android:name=".Opcionest" />
         <activity android:name=".Buscar" />
-        <activity android:name=".Resultados"></activity>
+        <activity android:name=".Resultados" />
+        <activity android:name=".Ubicacion"></activity>
     </application>
 
 </manifest>

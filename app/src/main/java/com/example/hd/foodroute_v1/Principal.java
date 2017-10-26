@@ -80,13 +80,13 @@ public class Principal extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.buscar:
-                Intent prueba = new Intent(this, Buscar.class);
+                Intent prueba = new Intent(Principal.this, Ubicacion.class);
                 startActivity(prueba);
                 //Toast.makeText(this,"Buscar Comida",Toast.LENGTH_SHORT).show();
-                return true;
+                return false;
 
             case R.id.opcDos:
-                Intent pru = new Intent(Principal.this, Opcionest.class);
+                Intent pru = new Intent(Principal.this, Ubicacion.class);
                 startActivity(pru);
                 return false;
 
