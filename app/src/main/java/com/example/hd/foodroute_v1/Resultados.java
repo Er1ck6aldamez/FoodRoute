@@ -97,6 +97,8 @@ public class Resultados extends AppCompatActivity {
                                 sugere.setLugar(jsonArray.getJSONObject(i).getString("Nombre"));
                                 sugere.setPrecio(jsonArray.getJSONObject(i).getString("PrecioTotal"));
                                 sugere.setImagen(jsonArray.getJSONObject(i).getString("Foto"));
+                                sugere.setLatitud(Double.parseDouble(jsonArray.getJSONObject(i).getString("latitud")));
+                                sugere.setLongitud(Double.parseDouble(jsonArray.getJSONObject(i).getString("longitud")));
                                 array.add(sugere);
                                 adaptador.notifyDataSetChanged();
                             }
