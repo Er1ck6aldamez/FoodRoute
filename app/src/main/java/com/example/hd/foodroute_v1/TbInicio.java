@@ -6,6 +6,7 @@ package com.example.hd.foodroute_v1;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -52,14 +53,31 @@ public class TbInicio extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        array=new ArrayList<>();
-        adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
         lstSugerencias = (ListView)getView().findViewById(R.id.lstSugerencias);
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
         lblActualizado=(TextView)getView().findViewById(R.id.lblPrecios);
 
-        CargarDatos();
+        if(savedInstanceState==null) {
+            array=new ArrayList<>();
+            adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
+
+            CargarDatos();
+        }else{
+            array = (ArrayList<Sugerencias>) savedInstanceState.getSerializable("listSugerencias");
+            adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
+
+            lstSugerencias.setVisibility(View.VISIBLE);
+            prgCircular.setVisibility(View.INVISIBLE);
+            lblActualizado.setVisibility(View.VISIBLE);
+        }
+
         lstSugerencias.setAdapter(adaptador);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("listSugerencias", array);
+        super.onSaveInstanceState(outState);
     }
 
     private void CargarDatos() {
@@ -83,6 +101,8 @@ public class TbInicio extends Fragment{
                             sugere.setLugar(jsonArray.getJSONObject(i).getString("Nombre"));
                             sugere.setPrecio(jsonArray.getJSONObject(i).getString("PrecioTotal"));
                             sugere.setImagen(jsonArray.getJSONObject(i).getString("Foto"));
+                            sugere.setLatitud(Double.parseDouble(jsonArray.getJSONObject(i).getString("latitud")));
+                            sugere.setLongitud(Double.parseDouble(jsonArray.getJSONObject(i).getString("longitud")));
                             array.add(sugere);
                             adaptador.notifyDataSetChanged();
                         }

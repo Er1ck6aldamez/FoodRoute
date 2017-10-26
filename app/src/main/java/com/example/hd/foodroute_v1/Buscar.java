@@ -110,7 +110,7 @@ public class Buscar extends AppCompatActivity {
 
             String presupuesto = txtPresupuesto.getText().toString().trim();
             if (TextUtils.isEmpty(presupuesto)) {
-                txtPresupuesto.setError("Campo Obligarotio");
+                txtPresupuesto.setError("Campo Obligatorio");
                 txtPresupuesto.findFocus();
 
                 estado = false;
