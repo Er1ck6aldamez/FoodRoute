@@ -59,17 +59,27 @@ public class TbRestaurantes extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
         swipeContainer = (SwipeRefreshLayout)getView().findViewById(R.id.contenedor);
-
-        // add data for displaying in expandable list view
-        loadData();
-
         //get reference of the ExpandableListView
         simpleExpandableListView = (ExpandableListView)getView().findViewById(R.id.simpleExpandableListView);
-        // create the adapter by passing your ArrayList data
-        listAdapter = new AdaptadorExpandible(getActivity().getApplicationContext(),deptList);
+        prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
+
+        if(savedInstanceState==null) {
+            // add data for displaying in expandable list view
+            loadData();
+            // create the adapter by passing your ArrayList data
+            listAdapter = new AdaptadorExpandible(getActivity().getApplicationContext(),deptList);
+        }else{
+            deptList=(ArrayList<GroupInfo>) savedInstanceState.getSerializable("listRestaurantes");
+            listAdapter = new AdaptadorExpandible(getActivity().getApplicationContext(),deptList);
+
+            prgCircular.setVisibility(View.INVISIBLE);
+            simpleExpandableListView.setVisibility(View.VISIBLE);
+        }
+
+
         // attach the adapter to the expandable list view
         simpleExpandableListView.setAdapter(listAdapter);
-        prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
+
         //expand all the Groups
         //expandAll();
 
@@ -114,6 +124,12 @@ public class TbRestaurantes extends Fragment{
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("listRestaurantes", deptList);
+        super.onSaveInstanceState(outState);
     }
 
     //method to expand all groups
