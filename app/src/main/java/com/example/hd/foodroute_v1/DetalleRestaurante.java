@@ -27,7 +27,7 @@ public class DetalleRestaurante extends AppCompatActivity {
         btnGeo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mapa = new Intent(DetalleRestaurante.this, MapaGeolocalizacion.class);
+                Intent mapa = new Intent(DetalleRestaurante.this, Ubicacion.class);
                 startActivity(mapa);
             }
         });

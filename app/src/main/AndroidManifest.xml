@@ -47,7 +47,6 @@
         <activity android:name=".Resultados" />
         <activity android:name=".Ubicacion"></activity>
         <activity android:name=".DetalleRestaurante"></activity>
-        <activity android:name=".MapaGeolocalizacion"></activity>
     </application>
 
 </manifest>
