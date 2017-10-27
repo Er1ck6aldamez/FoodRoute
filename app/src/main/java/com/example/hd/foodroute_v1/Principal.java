@@ -85,8 +85,10 @@ public class Principal extends AppCompatActivity {
                 //Toast.makeText(this,"Buscar Comida",Toast.LENGTH_SHORT).show();
                 return true;
 
+
+
             case R.id.opcDos:
-                Intent pru = new Intent(Principal.this, Ubicacion.class);
+                Intent pru = new Intent(Principal.this, DetalleRestaurante.class);
                 startActivity(pru);
                 return false;
 
