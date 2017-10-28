@@ -6,67 +6,77 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-    <LinearLayout
+    <com.github.snowdream.android.widget.SmartImageView
+        android:id="@+id/logoRestaurante"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:background="@drawable/chicago"
-        android:gravity="bottom"
+        android:layout_height="200dp"
+        android:background="#FFF" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="30dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/txtNombreRestaurante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Restaurante"
+        android:textSize="16sp"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre Restaurante"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:layout_marginLeft="16dp"
+        card_view:layout_constraintLeft_toLeftOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
+    <Button
+        android:id="@+id/btnTelfono"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/icono_tel"
 
-        </LinearLayout>
+        android:layout_marginRight="27dp"
+        card_view:layout_constraintRight_toRightOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        card_view:layout_constraintLeft_toRightOf="@+id/btnGeolocalizacion"
+        android:layout_marginLeft="8dp"
+        card_view:layout_constraintHorizontal_bias="1.0" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+        <Button
+            android:id="@+id/btnGeolocalizacion"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="69dp"
 
-            <Button
-                android:id="@+id/btnGeolocalizacion"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/icono_geo"
-                android:layout_gravity="right"
-                />
+            android:layout_marginTop="0dp"
+            android:background="@drawable/icono_geo2"
+            card_view:layout_constraintLeft_toRightOf="@+id/txtNombreRestaurante"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnTelfono"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/icono_tel"
- />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardviewhorarios"
+        android:id="@+id/DatosRestaurnte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="14dp"
         android:layout_marginTop="14dp"
-        card_view:cardCornerRadius="4dp">
+        card_view:cardCornerRadius="4dp"
+
+        >
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -78,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Direccion"
+                    android:text="Dirección"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="16sp" />
 
@@ -205,6 +215,7 @@
                             android:layout_weight=".12" />
 
                         <TextView
+                            android:id="@+id/txthoraApe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="9:am"
@@ -237,6 +248,7 @@
                             android:layout_weight=".12" />
 
                         <TextView
+                            android:id="@+id/txthoraCierre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="7:pm"
@@ -264,7 +276,7 @@
                     android:textSize="16sp" />
 
                 <Space
-                    android:layout_width="12dp"
+                    android:layout_width="8dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:layout_weight=".12" />
@@ -289,7 +301,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Telefono"
+                    android:text="Teléfono"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="16sp" />
 

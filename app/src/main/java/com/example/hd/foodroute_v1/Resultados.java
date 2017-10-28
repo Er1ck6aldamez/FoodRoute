@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -66,6 +67,18 @@ public class Resultados extends AppCompatActivity {
         //creacion de la fecha atras
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+        lstSugerencias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DetalleRestaurante.Datos=array.get(position).getLugar();
+                Intent intr = new Intent(Resultados.this, DetalleRestaurante.class);
+                startActivity(intr);
+            }
+        });
+
+
     }
 
     @Override

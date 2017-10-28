@@ -44,6 +44,8 @@ public class Sugerencias implements Parcelable{
         this.longitud = longitud;
     }
 
+
+
     public String getNombrePlatillo() {
         return NombrePlatillo;
     }
@@ -106,6 +108,7 @@ public class Sugerencias implements Parcelable{
         dest.writeDouble(latitud);
         dest.writeDouble(longitud);
 
+
     }
     private void readFromParcel(Parcel in){
         this.NombrePlatillo=in.readString();
@@ -114,5 +117,6 @@ public class Sugerencias implements Parcelable{
         imagen=in.readString();
         latitud=in.readDouble();
         longitud=in.readDouble();
+
     }
 }
