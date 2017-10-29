@@ -57,6 +57,7 @@ public class TbInicio extends Fragment{
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
         lblActualizado=(TextView)getView().findViewById(R.id.lblPrecios);
 
+
         if(savedInstanceState==null) {
             array=new ArrayList<>();
             adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
@@ -76,6 +77,7 @@ public class TbInicio extends Fragment{
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+
         outState.putParcelableArrayList("listSugerencias", array);
         super.onSaveInstanceState(outState);
     }

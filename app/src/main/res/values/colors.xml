@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#1B5E20</color>
     <color name="colorAccent">#4CAF50</color>
     <color name="colorTexto">#000000</color>
+    <drawable name="transperent_color">#00000000</drawable>
+    <color name="fondo">#FFF</color>
 </resources>

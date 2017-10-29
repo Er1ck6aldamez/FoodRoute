@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
+
+
 
     <com.github.snowdream.android.widget.SmartImageView
         android:id="@+id/logoRestaurante"
@@ -12,25 +14,27 @@
         android:layout_height="200dp"
         android:background="#FFF" />
 
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
 
-    <TextView
-        android:id="@+id/txtNombreRestaurante"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre Restaurante"
-        android:textSize="16sp"
+        <TextView
+            android:id="@+id/txtNombreRestaurante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
 
-        android:layout_marginLeft="16dp"
-        card_view:layout_constraintLeft_toLeftOf="parent"
-        card_view:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        card_view:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp" />
+            android:layout_marginTop="8dp"
+            android:text="Nombre Restaurante"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnTelfono"
@@ -56,8 +60,12 @@
             android:background="@drawable/icono_geo2"
             card_view:layout_constraintLeft_toRightOf="@+id/txtNombreRestaurante"
             card_view:layout_constraintTop_toTopOf="parent" />
-
     </android.support.constraint.ConstraintLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
 
 
     <android.support.v7.widget.CardView
@@ -66,72 +74,52 @@
         android:layout_height="wrap_content"
         android:layout_margin="14dp"
         android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
         card_view:cardCornerRadius="4dp"
-
+        android:smoothScrollbar="true"
         >
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
+
             >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                >
 
-                <TextView
-                    android:id="@+id/Direccion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/icon_phone24"
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:layout_marginRight="3dp"
                     android:layout_gravity="center_vertical"
-                    android:text="Dirección"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="75dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".12" />
-
-                <TextView
-                    android:id="@+id/txtDireccion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Direccion"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    android:src="@drawable/ic_especialidad"/>
 
                 <TextView
                     android:id="@+id/especialidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Especialidad"
+                    android:text="Especialidad               "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="52dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".12" />
 
                 <TextView
                     android:id="@+id/txtEspecialidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Especilidad"
+                    android:text="-"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -139,28 +127,35 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                >
+
+                <ImageView
+                    android:id="@+id/icon_phone3"
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:layout_marginRight="3dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_frmpago"/>
 
                 <TextView
                     android:id="@+id/FormaPago"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Forma de Pago"
+                    android:text="Forma de Pago           "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="33dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".12" />
 
                 <TextView
                     android:id="@+id/txtFormaPago"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="FormaPago"
+                    android:text="-"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -173,16 +168,28 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/icon_phone4"
+                        android:layout_width="16sp"
+                        android:layout_height="16sp"
+                        android:layout_marginRight="3dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_horario"/>
 
                     <TextView
                         android:id="@+id/Horario"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="Horario"
+                        android:text="Horario                        "
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -196,29 +203,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <Space
-                            android:layout_width="87dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight=".12" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Apertura"
+                            android:text="Apertura  "
                             android:textSize="16sp" />
-
-                        <Space
-                            android:layout_width="13dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight=".12" />
 
                         <TextView
                             android:id="@+id/txthoraApe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="9:am"
+                            android:text="-"
                             android:textSize="16sp" />
 
 
@@ -229,29 +225,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <Space
-                            android:layout_width="87dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight=".12" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Cierre"
+                            android:text="Cierre       "
                             android:textSize="16sp" />
-
-                        <Space
-                            android:layout_width="32dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight=".12" />
 
                         <TextView
                             android:id="@+id/txthoraCierre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="7:pm"
+                            android:text="-"
                             android:textSize="16sp" />
 
 
@@ -264,28 +248,33 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/icon_phone2"
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:layout_marginRight="3dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_srv_domicilo"/>
 
                 <TextView
                     android:id="@+id/ServicioDomicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Servicio a Domicio"
+                    android:text="Servicio a Domicio    "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".12" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtServicioDomicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Simon"
+                    android:text="-"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -294,28 +283,70 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                >
+                <ImageView
+                    android:id="@+id/icon_phone25"
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:layout_marginRight="3dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_telefono"/>
 
                 <TextView
                     android:id="@+id/Telefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Teléfono"
+                    android:text="Teléfono                      "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="78dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight=".12" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtTelefono"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="77432015"
+                    android:text="-"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                >
+
+                <ImageView
+                    android:id="@+id/icon_phone"
+                    android:layout_width="16sp"
+                    android:layout_height="16sp"
+                    android:layout_marginRight="3dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_direccion"/>
+
+                <TextView
+                    android:id="@+id/Direccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Dirección     "
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txtDireccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -324,5 +355,5 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-
+    </ScrollView>
 </LinearLayout>
