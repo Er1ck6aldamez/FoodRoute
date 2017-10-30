@@ -74,7 +74,7 @@ public class DetalleRestaurante extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent numero = new Intent(Intent.ACTION_DIAL);
-                numero.setData(Uri.parse("tel:77432015"));
+                numero.setData(Uri.parse("tel:"+telefono.getText()+""));
                 startActivity(numero);
             }
         });

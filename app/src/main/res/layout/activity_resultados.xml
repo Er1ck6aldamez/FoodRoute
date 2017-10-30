@@ -22,12 +22,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
+
     <TextView
         android:id="@+id/lblPrecio"
         android:layout_width="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:text="@string/txtActualizado"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>
