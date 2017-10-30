@@ -6,6 +6,7 @@ package com.example.hd.foodroute_v1;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -73,6 +75,15 @@ public class TbInicio extends Fragment{
         }
 
         lstSugerencias.setAdapter(adaptador);
+
+        lstSugerencias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DetalleRestaurante.Datos=array.get(position).getLugar();
+                Intent intr = new Intent(getActivity().getApplicationContext(), DetalleRestaurante.class);
+                startActivity(intr);
+            }
+        });
     }
 
     @Override
