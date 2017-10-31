@@ -48,7 +48,8 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
     private MapFragment mapFragment;
     private GoogleMap mMap;
     private Marker marcador;
-    private double latitud, longitud, la = 13.7124804, lo = -89.7275659;
+    private double latitud, longitud;
+    public static double la = 13.7124804, lo = -89.7275659;
     AlertDialog alert = null;
     private int contador=0;
     private FusedLocationProviderClient mFusedLocationClient;
