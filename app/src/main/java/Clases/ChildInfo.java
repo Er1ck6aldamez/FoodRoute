@@ -10,6 +10,24 @@ import android.os.Parcelable;
 public class ChildInfo implements Parcelable{
     private String sequence = "";//ID del restaurante
     private String name = "";
+    private String latitud = "";
+    private String longitud = "";
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
+    }
 
     public static final Parcelable.Creator<ChildInfo> CREATOR
             = new Parcelable.Creator<ChildInfo>() {
@@ -53,9 +71,13 @@ public class ChildInfo implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(sequence);
         dest.writeString(name);
+        dest.writeString(latitud);
+        dest.writeString(longitud);
     }
     private void readFromParcel(Parcel in){
         sequence=in.readString();
         name=in.readString();
+        latitud=in.readString();
+        longitud=in.readString();
     }
 }

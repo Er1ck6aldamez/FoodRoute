@@ -32,6 +32,7 @@ import java.util.LinkedHashMap;
 import Clases.AdaptadorExpandible;
 import Clases.ChildInfo;
 import Clases.GroupInfo;
+import Clases.MyAdapter;
 import cz.msebera.android.httpclient.Header;
 
 public class TbRestaurantes extends Fragment{
@@ -62,6 +63,7 @@ public class TbRestaurantes extends Fragment{
         //get reference of the ExpandableListView
         simpleExpandableListView = (ExpandableListView)getView().findViewById(R.id.simpleExpandableListView);
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
+        MyAdapter.verdad=true;
 
         if(savedInstanceState==null) {
             // add data for displaying in expandable list view
@@ -110,6 +112,8 @@ public class TbRestaurantes extends Fragment{
                 //display it or do something with it
 
                 DetalleRestaurante.Datos = detailInfo.getName();
+                Ubicacion.la=Double.parseDouble(detailInfo.getLatitud());
+                Ubicacion.lo=Double.parseDouble(detailInfo.getLongitud());
                 Intent res =  new Intent(getActivity().getApplicationContext(),DetalleRestaurante.class);
                 startActivity(res);
 
@@ -168,7 +172,7 @@ public class TbRestaurantes extends Fragment{
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
                         //sug=new Sugerencias[jsonArray.length()];
                         for(int i=0;i<jsonArray.length();i++){
-                            addProduct("Comida a la carta",jsonArray.getJSONObject(i).getString("Nombre"));
+                            addProduct("Comida a la carta",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
                         recargar=true;
@@ -182,7 +186,7 @@ public class TbRestaurantes extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                addProduct("Comida a la carta","Error al cargar lista");
+                addProduct("Comida a la carta","Error al cargar lista","0","0");
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);recargar=true;
@@ -200,7 +204,7 @@ public class TbRestaurantes extends Fragment{
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
                         //sug=new Sugerencias[jsonArray.length()];
                         for(int i=0;i<jsonArray.length();i++){
-                            addProduct("Comida mexicana",jsonArray.getJSONObject(i).getString("Nombre"));
+                            addProduct("Comida mexicana",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
                         recargar=true;
@@ -214,7 +218,7 @@ public class TbRestaurantes extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                addProduct("Comida mexicana","Error al cargar lista");
+                addProduct("Comida mexicana","Error al cargar lista","0","0");
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
@@ -232,7 +236,7 @@ public class TbRestaurantes extends Fragment{
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
                         //sug=new Sugerencias[jsonArray.length()];
                         for(int i=0;i<jsonArray.length();i++){
-                            addProduct("Comida a la vista",jsonArray.getJSONObject(i).getString("Nombre"));
+                            addProduct("Comida a la vista",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
                         recargar=true;
@@ -246,7 +250,7 @@ public class TbRestaurantes extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                addProduct("Comida a la vista","Error al cargar lista");
+                addProduct("Comida a la vista","Error al cargar lista","0","0");
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
@@ -264,7 +268,7 @@ public class TbRestaurantes extends Fragment{
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
                         //sug=new Sugerencias[jsonArray.length()];
                         for(int i=0;i<jsonArray.length();i++){
-                            addProduct("Comida a la parrilla",jsonArray.getJSONObject(i).getString("Nombre"));
+                            addProduct("Comida a la parrilla",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
                         recargar=true;
@@ -278,7 +282,7 @@ public class TbRestaurantes extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                addProduct("Comida a la parrilla","Error al cargar lista");
+                addProduct("Comida a la parrilla","Error al cargar lista","0","0");
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
@@ -296,7 +300,7 @@ public class TbRestaurantes extends Fragment{
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
                         //sug=new Sugerencias[jsonArray.length()];
                         for(int i=0;i<jsonArray.length();i++){
-                            addProduct("Comida tradicional",jsonArray.getJSONObject(i).getString("Nombre"));
+                            addProduct("Comida tradicional",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
                         recargar=true;
@@ -310,7 +314,7 @@ public class TbRestaurantes extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                addProduct("Comida tradicional","Error al cargar lista");
+                addProduct("Comida tradicional","Error al cargar lista","0","0");
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
@@ -329,7 +333,7 @@ public class TbRestaurantes extends Fragment{
                         JSONArray jsonArray=json.getJSONArray("restaurantes");
                         //sug=new Sugerencias[jsonArray.length()];
                         for(int i=0;i<jsonArray.length();i++){
-                            addProduct("Comida rápida",jsonArray.getJSONObject(i).getString("Nombre"));
+                            addProduct("Comida rápida",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
                         recargar=true;
@@ -343,7 +347,7 @@ public class TbRestaurantes extends Fragment{
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                addProduct("Comida rápida","Error al cargar lista");
+                addProduct("Comida rápida","Error al cargar lista","0","0");
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 simpleExpandableListView.setVisibility(View.VISIBLE);
@@ -360,7 +364,7 @@ public class TbRestaurantes extends Fragment{
     }
 
     //here we maintain our products in various departments
-    private int addProduct(String department, String product){
+    private int addProduct(String department, String product,String lat,String lon){
 
         int groupPosition = 0;
 
@@ -389,6 +393,8 @@ public class TbRestaurantes extends Fragment{
         ChildInfo detailInfo = new ChildInfo();
         detailInfo.setSequence(String.valueOf(listSize));
         detailInfo.setName(product);
+        detailInfo.setLatitud(lat);
+        detailInfo.setLongitud(lon);
         productList.add(detailInfo);
         headerInfo.setProductList(productList);
 

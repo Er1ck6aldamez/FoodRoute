@@ -24,6 +24,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private static List<Sugerencias> lstSugerencias;
+    public static boolean verdad=false;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         Context context;
@@ -51,9 +52,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         @Override
         public void onClick(View v) {
+            verdad=false;
             DetalleRestaurante.Datos=lstSugerencias.get(pos).getLugar();
-            Ubicacion.la=lstSugerencias.get(pos).getLatitud();
-            Ubicacion.lo=lstSugerencias.get(pos).getLongitud();
+            if (!verdad) {
+                Ubicacion.la = lstSugerencias.get(pos).getLatitud();
+                Ubicacion.lo = lstSugerencias.get(pos).getLongitud();
+            }
             Intent intr = new Intent(context, DetalleRestaurante.class);
             context.startActivity(intr);
         }
