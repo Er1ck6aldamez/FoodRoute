@@ -322,7 +322,7 @@ public class TbRestaurantes extends Fragment{
             }
         });
 
-        client.get("https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_esp.php?especialidad=Comida rapida", new AsyncHttpResponseHandler() {
+        client.get("https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_esp.php?especialidad=Comida rápida", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
