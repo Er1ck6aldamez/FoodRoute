@@ -13,6 +13,8 @@
     <color name="clr_Itm_Padre">#3e3939</color>
     <color name="clr_divider_Hijo">#27662a</color>
 
+    <color name="clr_dividerf_Hijo">#27662a</color>
+
     <color name="fondoprincipal">#978e8e</color>
     <color name="fondo">#000000</color>
 </resources>
