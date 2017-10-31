@@ -138,7 +138,7 @@ public class Principal extends AppCompatActivity {
                 case 0:
                     return "INICIO";
                 case 1:
-                    return "RESTAURANTES";
+                    return "ESPECIALIDAD";
                 case 2:
                     return "HISTORIAL";
             }
