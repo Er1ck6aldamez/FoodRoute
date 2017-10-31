@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.hd.foodroute_v1.DetalleRestaurante;
 import com.example.hd.foodroute_v1.R;
 import com.example.hd.foodroute_v1.TbInicio;
+import com.example.hd.foodroute_v1.Ubicacion;
 import com.github.snowdream.android.widget.SmartImageView;
 
 import java.util.List;
@@ -51,6 +52,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         @Override
         public void onClick(View v) {
             DetalleRestaurante.Datos=lstSugerencias.get(pos).getLugar();
+            Ubicacion.la=lstSugerencias.get(pos).getLatitud();
+            Ubicacion.lo=lstSugerencias.get(pos).getLongitud();
             Intent intr = new Intent(context, DetalleRestaurante.class);
             context.startActivity(intr);
         }

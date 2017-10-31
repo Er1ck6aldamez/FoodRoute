@@ -30,6 +30,7 @@ public class DetalleRestaurante extends AppCompatActivity {
     private Button btnGeo, btnTel;
     public static String Datos;
     private String ruta;
+    private DatosRestaurantes comedor;
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
 
     private SmartImageView logo;
@@ -46,7 +47,6 @@ public class DetalleRestaurante extends AppCompatActivity {
 
         ruta="https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_nombre.php?nombre="+Datos;
 
-
         this.logo = (SmartImageView) findViewById(R.id.logoRestaurante);
 
         this.nombre = (TextView) findViewById(R.id.txtNombreRestaurante);
@@ -60,6 +60,8 @@ public class DetalleRestaurante extends AppCompatActivity {
 
         this.btnGeo = (Button) findViewById(R.id.btnGeolocalizacion);
         this.btnTel = (Button) findViewById(R.id.btnTelfono);
+
+        comedor=new DatosRestaurantes();
 
         btnGeo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +81,30 @@ public class DetalleRestaurante extends AppCompatActivity {
             }
         });
 
-        CargarDatos();
+        if(savedInstanceState==null){
+            comedor=new DatosRestaurantes();
+            CargarDatos();
+        }else{
+            comedor=(DatosRestaurantes) savedInstanceState.getParcelable("restaurante");
+            nombre.setText(comedor.getNombre());
+            direccion.setText(comedor.getDireccion());
+            especialidad.setText(comedor.getEspecialidad());
+            telefono.setText(comedor.getTelefono());
+            horaApe.setText(comedor.getHoraApertura());
+            horaCie.setText(comedor.getHoraCierre());
+            servDomicilio.setText(comedor.getServicioDomicilio());
+            formaPago.setText(comedor.getEfectivo());
+            Rect rect=new Rect(logo.getLeft(),logo.getTop(),logo.getRight(),logo.getBottom());
+            logo.setImageUrl(imgurl+comedor.getImagen(),rect);
+        }
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putParcelable("restaurante", comedor);
+        super.onSaveInstanceState(outState);
     }
 
     private void CargarDatos() {
@@ -96,31 +120,40 @@ public class DetalleRestaurante extends AppCompatActivity {
                         String estado=json.getString("estado");
                         if(estado.equals("1")) {
                             JSONArray jsonArray=json.getJSONArray("restaurantes");
-                            //sug=new Sugerencias[jsonArray.length()];
+
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 nombre.setText(jsonArray.getJSONObject(i).getString("Nombre"));
+                                comedor.setNombre(jsonArray.getJSONObject(i).getString("Nombre"));
                                 direccion.setText(jsonArray.getJSONObject(i).getString("Direccion"));
+                                comedor.setDireccion(jsonArray.getJSONObject(i).getString("Direccion"));
                                 especialidad.setText(jsonArray.getJSONObject(i).getString("Especialidad"));
+                                comedor.setEspecialidad(jsonArray.getJSONObject(i).getString("Especialidad"));
                                 horaApe.setText(jsonArray.getJSONObject(i).getString("HoraApertura"));
+                                comedor.setHoraApertura(jsonArray.getJSONObject(i).getString("HoraApertura"));
                                 horaCie.setText(jsonArray.getJSONObject(i).getString("HoraCierre"));
+                                comedor.setHoraCierre(jsonArray.getJSONObject(i).getString("HoraCierre"));
                                 telefono.setText(jsonArray.getJSONObject(i).getString("Telefono"));
+                                comedor.setTelefono(jsonArray.getJSONObject(i).getString("Telefono"));
 
                                 if (jsonArray.getJSONObject(i).getString("ServicioDomicilio").equals("0")){
                                     servDomicilio.setText("No");
+                                    comedor.setServicioDomicilio("No");
                                 }else {
                                     servDomicilio.setText("Si");
+                                    comedor.setServicioDomicilio("Si");
                                 }
 
                                 if (jsonArray.getJSONObject(i).getString("Tarjeta").equals("1") && jsonArray.getJSONObject(i).getString("Efectivo").equals("1")){
                                     formaPago.setText("Efectivo y Tarjeta");
+                                    comedor.setEfectivo("Efectivo y Tarjeta");
                                 }else {
                                     formaPago.setText("Efectivo");
+                                    comedor.setEfectivo("Efectivo");
                                 }
 
                                 Rect rect=new Rect(logo.getLeft(),logo.getTop(),logo.getRight(),logo.getBottom());
                                 logo.setImageUrl(imgurl+jsonArray.getJSONObject(i).getString("Imagen"),rect);
-
-
+                                comedor.setImagen(jsonArray.getJSONObject(i).getString("Imagen"));
 
                             }
                         }else{
