@@ -18,5 +18,6 @@
     <string name="txtAmbos">Ambos </string>
     <string name="txtBuscar">Buscar</string>
     <string name="txtActualizado">Información actualizada a 20/10/2017</string>
+    <string name="title_activity_maps">Mapa</string>
 
 </resources>

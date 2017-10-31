@@ -11,6 +11,8 @@ import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,16 +32,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import Clases.AdaptadorSugerencias;
+import Clases.MyAdapter;
 import Clases.Sugerencias;
 import cz.msebera.android.httpclient.Header;
 
 
 public class TbInicio extends Fragment{
     //Declaracion de variables
-    private ListView lstSugerencias;
+    private RecyclerView lstSugerencias;
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
     private ArrayList<Sugerencias> array;
-    private AdaptadorSugerencias adaptador;
+    private MyAdapter adaptador;
     private ProgressBar prgCircular;
     private TextView lblActualizado;
 
@@ -55,19 +58,22 @@ public class TbInicio extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        lstSugerencias = (ListView)getView().findViewById(R.id.lstSugerencias);
+        lstSugerencias = (RecyclerView)getView().findViewById(R.id.lstSugerencias);
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
         lblActualizado=(TextView)getView().findViewById(R.id.lblPrecios);
+        lstSugerencias.setHasFixedSize(true);
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        lstSugerencias.setLayoutManager(layoutManager);
 
         if(savedInstanceState==null) {
             array=new ArrayList<>();
-            adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
+            adaptador=new MyAdapter(array);
 
             CargarDatos();
         }else{
             array = (ArrayList<Sugerencias>) savedInstanceState.getSerializable("listSugerencias");
-            adaptador=new AdaptadorSugerencias(getActivity().getApplicationContext(),array);
+            adaptador=new MyAdapter(array);
 
             lstSugerencias.setVisibility(View.VISIBLE);
             prgCircular.setVisibility(View.INVISIBLE);
@@ -76,14 +82,6 @@ public class TbInicio extends Fragment{
 
         lstSugerencias.setAdapter(adaptador);
 
-        lstSugerencias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DetalleRestaurante.Datos=array.get(position).getLugar();
-                Intent intr = new Intent(getActivity().getApplicationContext(), DetalleRestaurante.class);
-                startActivity(intr);
-            }
-        });
     }
 
     @Override

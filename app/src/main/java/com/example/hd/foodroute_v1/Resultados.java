@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,9 +24,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Clases.AdaptadorSugerencias;
+import Clases.MyAdapter;
 import Clases.Sugerencias;
 import cz.msebera.android.httpclient.Header;
 
@@ -31,9 +37,9 @@ public class Resultados extends AppCompatActivity {
     public static String tipo_comida,presupuesto;
     public static int efectivo;
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
-    private ListView lstSugerencias;
+    private RecyclerView lstSugerencias;
     private ArrayList<Sugerencias> array;
-    private AdaptadorSugerencias adaptador;
+    private MyAdapter adaptador;
     private ProgressBar prgCircular;
     private String ruta,ruta2;
 
@@ -45,18 +51,22 @@ public class Resultados extends AppCompatActivity {
         setContentView(R.layout.activity_resultados);
 
         lblActualizado=(TextView)findViewById(R.id.lblPrecio);
-        lstSugerencias = (ListView)findViewById(R.id.lstSugerencias);
+        lstSugerencias = (RecyclerView)findViewById(R.id.lstSugerencias);
         prgCircular = (ProgressBar)findViewById(R.id.prgCircular);
+        lstSugerencias.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        lstSugerencias.setLayoutManager(layoutManager);
         ruta="https://foodroute.000webhostapp.com/proyecto/obtener_comidas.php?especialidad="+tipo_comida+" && presupuesto="+presupuesto;
         ruta2="https://foodroute.000webhostapp.com/proyecto/obtener_comidas_efectivo.php?especialidad="+tipo_comida+" && presupuesto="+presupuesto;
 
         if(savedInstanceState==null){
             array=new ArrayList<>();
-            adaptador=new AdaptadorSugerencias(Resultados.this,array);
+            adaptador=new MyAdapter(array);
             CargarDatos();
         }else {
             array = (ArrayList<Sugerencias>) savedInstanceState.getSerializable("listResultados");
-            adaptador = new AdaptadorSugerencias(Resultados.this, array);
+            adaptador=new MyAdapter(array);
             prgCircular.setVisibility(View.INVISIBLE);
             lblActualizado.setVisibility(View.VISIBLE);
             lstSugerencias.setVisibility(View.VISIBLE);
@@ -67,17 +77,6 @@ public class Resultados extends AppCompatActivity {
         //creacion de la fecha atras
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-
-        lstSugerencias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DetalleRestaurante.Datos=array.get(position).getLugar();
-                Intent intr = new Intent(Resultados.this, DetalleRestaurante.class);
-                startActivity(intr);
-            }
-        });
-
 
     }
 

@@ -10,13 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.hd.foodroute_v1.Resultados">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/lstSugerencias"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:smoothScrollbar="true"
         android:paddingBottom="18sp"
-        android:visibility="invisible"></ListView>
+        android:visibility="invisible"
+        android:layout_height="match_parent"/>
     <ProgressBar
         android:id="@+id/prgCircular"
         android:layout_width="wrap_content"

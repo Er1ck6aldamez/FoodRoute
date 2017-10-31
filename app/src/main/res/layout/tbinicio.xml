@@ -9,15 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <ListView
-        android:id="@+id/lstSugerencias"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:smoothScrollbar="true"
-        android:paddingBottom="18sp"
-        android:visibility="invisible">
 
-    </ListView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lstSugerencias"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:paddingBottom="18sp"
+        android:visibility="invisible"
+        android:layout_height="match_parent"/>
 
     <ProgressBar
         android:id="@+id/prgCircular"
