@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/fondoprincipal"
+
+
+android:padding="20dp"
     tools:context="com.example.hd.foodroute_v1.Buscar">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardviewhorarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp">
 
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +43,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txtTituloBuscar"
                 android:layout_gravity="center"
-                android:paddingTop="30dp"
+                android:paddingTop="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/tituloBuscar"
+                android:textSize="18dp"
+
                 />
 
             <LinearLayout
@@ -47,14 +63,21 @@
                     android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtPresupuesto" />
+                    android:text="@string/txtPresupuesto"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    />
 
                 <EditText
                     android:id="@+id/txtpresupuesto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/clr_Itm_Padre"
+
+                    android:backgroundTint="@color/clr_divider_Hijo"
+                    />
 
             </LinearLayout>
 
@@ -71,12 +94,18 @@
                     android:id="@+id/txt_tipoComida"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/txtTipodeComida" />
+                    android:text="@string/txtTipodeComida"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    />
 
                 <Spinner
                     android:id="@+id/spnrTipoComida"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/clr_divider_Hijo"
+                    android:textColor="@color/clr_Letra"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -99,6 +128,8 @@
                         android:layout_weight="1"
                         android:text="@string/txtTipodePago"
                         android:paddingBottom="5dp"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
                         />
 
                     <RadioButton
@@ -106,29 +137,37 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/txtEfectivo" />
+                        android:text="@string/txtEfectivo"
+                        android:textColor="@color/clr_Itm_Padre"
+                        android:buttonTint="@color/clr_divider_Hijo"
+                        />
 
                     <RadioButton
                         android:id="@+id/rbtnEfecivo_Tarjeta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/txtTarjeta" />
+                        android:textColor="@color/clr_Itm_Padre"
+                        android:text="@string/txtTarjeta"
+                        android:buttonTint="@color/clr_divider_Hijo"
+                        />
 
                 </RadioGroup>
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnBuscar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txtBuscar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="right"
                 android:padding="10dp"
                 android:textSize="15dp"
+                android:background="@drawable/ic_vbuscar"
+                android:layout_marginBottom="30dp"
                 />
         </LinearLayout>
 
     </ScrollView>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

@@ -12,14 +12,22 @@
         android:id="@+id/contenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <ExpandableListView
         android:id="@+id/simpleExpandableListView"
         android:layout_width="fill_parent"
         android:visibility="invisible"
         android:layout_height="fill_parent"
-        android:dividerHeight="1dp"
-        android:listSelector="@color/colorAccent"
-        android:childDivider="@color/colorPrimary"/>
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:divider="@color/clr_divider_padre"
+        android:dividerHeight="2dp"
+        android:listSelector="@color/clr_Itm_Padre"
+        android:childDivider="@color/clr_divider_Hijo"
+
+
+        />
+
     <ProgressBar
         android:id="@+id/prgCircular"
         android:layout_width="wrap_content"

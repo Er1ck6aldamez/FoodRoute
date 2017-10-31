@@ -3,25 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/fondoprincipal"
+    >
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondoprincipal"
     >
 
     <com.github.snowdream.android.widget.SmartImageView
         android:id="@+id/logoRestaurante"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="#FFF" />
+        android:background="@color/fondoprincipal"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
+        />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:background="@color/clr_Itm_Padre"
+
         >
 
         <TextView
@@ -30,6 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
+
+            android:textColor="@color/clr_Letra"
 
             android:layout_marginTop="8dp"
             android:text="Nombre Restaurante"
@@ -68,7 +81,10 @@
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
         card_view:cardCornerRadius="4dp"
-        android:smoothScrollbar="true">
+        android:smoothScrollbar="true"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -307,6 +323,8 @@
                 android:orientation="horizontal"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"
                 >
 
                 <ImageView
@@ -325,7 +343,8 @@
                     android:text="Dirección     "
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    />
 
 
                 <TextView

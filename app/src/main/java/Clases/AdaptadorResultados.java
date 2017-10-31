@@ -35,6 +35,7 @@ public class AdaptadorResultados extends ArrayAdapter<Resultados> {
 
         Resultados res=getItem(position);
 
+
         if(convertView==null){
             convertView= LayoutInflater.from(getContext()).inflate(R.layout.item_resultado,parent,false);
         }

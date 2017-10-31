@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D50000</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorPrimary">#2e7d32</color>
+    <color name="colorPrimaryDark">#1b5e20</color>
+    <color name="colorAccent">#0d4a06</color>
     <color name="colorTexto">#000000</color>
     <drawable name="transperent_color">#00000000</drawable>
+
+    <color name="tituloBuscar">#594d4d</color>
+
+    <color name="clr_divider_padre">#646461</color>
+    <color name="clr_Letra">#ebe4e4</color>
+    <color name="clr_Itm_Padre">#3e3939</color>
+    <color name="clr_divider_Hijo">#27662a</color>
+
     <color name="fondoprincipal">#978e8e</color>
     <color name="fondo">#000000</color>
 </resources>

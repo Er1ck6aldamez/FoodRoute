@@ -108,8 +108,13 @@ public class TbRestaurantes extends Fragment{
                 //get the child info
                 ChildInfo detailInfo =  headerInfo.getProductList().get(childPosition);
                 //display it or do something with it
-                Toast.makeText(getActivity().getApplicationContext(), " Clicked on :: " + headerInfo.getName()
-                        + "/" + detailInfo.getName(), Toast.LENGTH_LONG).show();
+
+                DetalleRestaurante.Datos = detailInfo.getName();
+                Intent res =  new Intent(getActivity().getApplicationContext(),DetalleRestaurante.class);
+                startActivity(res);
+
+
+                //Toast.makeText(getActivity().getApplicationContext(), " Clicked on :: " + headerInfo.getName( + "/" + detailInfo.getName(), Toast.LENGTH_LONG).show();
                 return false;
             }
         });
