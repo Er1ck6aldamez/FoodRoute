@@ -5,7 +5,7 @@
 
     <item>
         <bitmap
-            android:gravity="center"
-            android:src="@drawable/foodroute"/>
+            android:gravity="center_horizontal"
+            android:src="@drawable/splash_"/>
     </item>
 </layer-list>
