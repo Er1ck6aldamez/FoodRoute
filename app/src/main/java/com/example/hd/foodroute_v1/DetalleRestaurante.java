@@ -1,5 +1,7 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -48,7 +50,7 @@ public class DetalleRestaurante extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_restaurante);
         //flecha atras
        ActionBar actionBar = getSupportActionBar();
-         actionBar.setDisplayHomeAsUpEnabled(true);
+        // actionBar.setDisplayHomeAsUpEnabled(true);
 
         /*nuevo
 
@@ -93,9 +95,13 @@ public class DetalleRestaurante extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent numero = new Intent(Intent.ACTION_DIAL);
-                numero.setData(Uri.parse("tel:" + telefono.getText() + ""));
-                startActivity(numero);
+                if (validarTelefono()) {
+                    NoTelefono();
+                }else {
+                    Intent numero = new Intent(Intent.ACTION_DIAL);
+                    numero.setData(Uri.parse("tel:" + telefono.getText() + ""));
+                    startActivity(numero);
+                }
             }
         });
 
@@ -211,9 +217,30 @@ public class DetalleRestaurante extends AppCompatActivity {
     }
 
     public boolean validarTelefono(){
+        boolean tel = false;
         if (telefono.getText().equals("-")){
-            btnTel.isEnabled();
+
+            btnTel.setEnabled(false);
+            tel = true;
         }
-        return true;
+        return tel;
     }
+
+    public void NoTelefono() {
+        AlertDialog.Builder Alerta = new AlertDialog.Builder(DetalleRestaurante.this);
+        Alerta.setTitle("Alerta").
+                setMessage("Restaurante no cuenta con servicio telefonico").
+                setIcon(R.drawable.warning).
+                setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        AlertDialog alertDialog = Alerta.create();
+        alertDialog.show();
+    }
+
+
 }

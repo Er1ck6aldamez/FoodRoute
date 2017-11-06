@@ -32,7 +32,9 @@ package="com.example.hd.foodroute_v1">
     <activity android:name=".Buscar" />
     <activity android:name=".Resultados" />
     <activity android:name=".Ubicacion"></activity>
-    <activity android:name=".DetalleRestaurante"></activity>
+    <activity android:name=".DetalleRestaurante"
+        android:theme="@style/AppTheme.NoActionBar"
+        ></activity>
 </application>
 
 </manifest>
