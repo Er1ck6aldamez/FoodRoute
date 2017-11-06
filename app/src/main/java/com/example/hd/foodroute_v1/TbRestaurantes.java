@@ -91,7 +91,7 @@ public class TbRestaurantes extends Fragment{
                 // Your code to refresh the list here.
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
-                deptList=new ArrayList<GroupInfo>();
+                //deptList=new ArrayList<GroupInfo>();
                 loadData();
             }
         });
@@ -116,8 +116,6 @@ public class TbRestaurantes extends Fragment{
                 Ubicacion.lo=Double.parseDouble(detailInfo.getLongitud());
                 Intent res =  new Intent(getActivity().getApplicationContext(),DetalleRestaurante.class);
                 startActivity(res);
-
-
                 //Toast.makeText(getActivity().getApplicationContext(), " Clicked on :: " + headerInfo.getName( + "/" + detailInfo.getName(), Toast.LENGTH_LONG).show();
                 return false;
             }

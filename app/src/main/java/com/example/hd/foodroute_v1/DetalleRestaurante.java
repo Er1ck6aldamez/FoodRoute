@@ -23,6 +23,8 @@ import org.json.JSONObject;
 
 import Clases.DatosRestaurantes;
 import Clases.Sugerencias;
+import Modelo.HistorialDBHelper;
+import Modelo.Lugares;
 import cz.msebera.android.httpclient.Header;
 
 public class DetalleRestaurante extends AppCompatActivity {
@@ -32,6 +34,8 @@ public class DetalleRestaurante extends AppCompatActivity {
     private String ruta;
     private DatosRestaurantes comedor;
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
+    private Lugares lugar;
+    private HistorialDBHelper historialDBHelper;
 
     private SmartImageView logo;
     private TextView nombre, direccion, especialidad, horaApe, horaCie, formaPago, servDomicilio, telefono;
@@ -48,6 +52,9 @@ public class DetalleRestaurante extends AppCompatActivity {
         ruta="https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_nombre.php?nombre="+Datos;
 
         this.logo = (SmartImageView) findViewById(R.id.logoRestaurante);
+
+        lugar=new Lugares();
+        historialDBHelper=new HistorialDBHelper(DetalleRestaurante.this);
 
         this.nombre = (TextView) findViewById(R.id.txtNombreRestaurante);
         this.direccion = (TextView) findViewById(R.id.txtDireccion);
@@ -134,6 +141,14 @@ public class DetalleRestaurante extends AppCompatActivity {
                                 comedor.setHoraCierre(jsonArray.getJSONObject(i).getString("HoraCierre"));
                                 telefono.setText(jsonArray.getJSONObject(i).getString("Telefono"));
                                 comedor.setTelefono(jsonArray.getJSONObject(i).getString("Telefono"));
+
+                                lugar.setNombre(jsonArray.getJSONObject(i).getString("Nombre"));
+                                lugar.setHoraApertura(jsonArray.getJSONObject(i).getString("HoraApertura"));
+                                lugar.setHoraCierre(jsonArray.getJSONObject(i).getString("HoraCierre"));
+                                lugar.setLatitud(Ubicacion.la);
+                                lugar.setLongitud(Ubicacion.lo);
+
+                                historialDBHelper.insertNote(lugar);
 
                                 if (jsonArray.getJSONObject(i).getString("ServicioDomicilio").equals("0")){
                                     servDomicilio.setText("No");

@@ -14,5 +14,12 @@
         android:layout_height="match_parent">
 
     </ListView>
+    <ImageView
+        android:id="@+id/fondoHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_warning_black_48dp"
+        android:scaleType="center"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

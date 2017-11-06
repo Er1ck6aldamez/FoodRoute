@@ -18,6 +18,8 @@ import com.github.snowdream.android.widget.SmartImageView;
 
 import java.util.List;
 
+import Modelo.Lugares;
+
 /**
  * Created by Choche on 30/10/2017.
  */

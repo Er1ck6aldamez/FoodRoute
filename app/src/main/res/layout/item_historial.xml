@@ -2,41 +2,26 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        app:srcCompat="@drawable/chicago"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="0dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtRestaurante"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginStart="2dp"
-        app:layout_constraintLeft_toRightOf="@+id/imageView2"
-        android:layout_marginLeft="2dp" />
+        android:textColor="@color/colorTexto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtHoraApertura"
-        app:layout_constraintLeft_toRightOf="@+id/imageView2"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginStart="2dp"
+        android:textColor="@color/colorTexto"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
@@ -44,15 +29,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtHoraCierre"
-        app:layout_constraintLeft_toRightOf="@+id/imageView2"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginStart="2dp"
+        android:textColor="@color/colorTexto"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/txtNombreRest"
         android:layout_width="wrap_content"
+        android:textColor="@color/colorTexto"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="0dp"
@@ -65,6 +49,7 @@
         android:id="@+id/txtHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorTexto"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="19dp"
         android:layout_marginStart="8dp"
@@ -78,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="37dp"
+        android:textColor="@color/colorTexto"
         android:layout_marginStart="8dp"
         android:text="TextView"
         app:layout_constraintLeft_toRightOf="@+id/textView7"
