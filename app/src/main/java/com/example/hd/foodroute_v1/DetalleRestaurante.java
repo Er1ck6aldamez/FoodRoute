@@ -50,7 +50,7 @@ public class DetalleRestaurante extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_restaurante);
         //flecha atras
        ActionBar actionBar = getSupportActionBar();
-        // actionBar.setDisplayHomeAsUpEnabled(true);
+        //actionBar.setDisplayHomeAsUpEnabled(true);
 
         /*nuevo
 

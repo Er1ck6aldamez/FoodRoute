@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class TbInicio extends Fragment{
     private MyAdapter adaptador;
     private ProgressBar prgCircular;
     private TextView lblActualizado;
+    private ImageView imagen_señal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,6 +65,8 @@ public class TbInicio extends Fragment{
         prgCircular = (ProgressBar)getView().findViewById(R.id.prgCircular);
         lblActualizado=(TextView)getView().findViewById(R.id.lblPrecios);
         lstSugerencias.setHasFixedSize(true);
+        imagen_señal = (ImageView)getView().findViewById(R.id.img_señal);
+
 
         LinearLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
         lstSugerencias.setLayoutManager(layoutManager);
@@ -141,6 +145,7 @@ public class TbInicio extends Fragment{
         AlertDialog.Builder Alerta = new AlertDialog.Builder(getContext());
         Alerta.setTitle("Fallo al cargar Sugerencias").
         setMessage("Volever a cargar datos").
+                setIcon(R.drawable.warning).
         setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -152,6 +157,7 @@ public class TbInicio extends Fragment{
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
                 prgCircular.setVisibility(View.INVISIBLE);
+                imagen_señal.setVisibility(View.VISIBLE);
             }
         });
 
