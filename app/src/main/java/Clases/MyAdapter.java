@@ -41,7 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             context=v.getContext();
             plato = (TextView) v.findViewById(R.id.txtNombrePlatillo);
             precio = (TextView) v.findViewById(R.id.txtPrecio);
-            lugar=(TextView) v.findViewById(R.id.txtLugar);
+           // lugar=(TextView) v.findViewById(R.id.txtLugar);
             imagen=(SmartImageView) v.findViewById(R.id.imgSugerencia);
             tarjeta=(CardView) v.findViewById(R.id.cardviewhorarios);
 
@@ -85,7 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         //holder.mTextView.setText(mDataSet[position]);
         holder.plato.setText(lstSugerencias.get(position).getNombrePlatillo());
         holder.precio.setText("$"+lstSugerencias.get(position).getPrecio());
-        holder.lugar.setText(lstSugerencias.get(position).getLugar());
+      //  holder.lugar.setText(lstSugerencias.get(position).getLugar());
         Rect rect=new Rect(holder.imagen.getLeft(),holder.imagen.getTop(),holder.imagen.getRight(),holder.imagen.getBottom());
         holder.imagen.setImageUrl(TbInicio.imgurl+lstSugerencias.get(position).getImagen(),rect);
 

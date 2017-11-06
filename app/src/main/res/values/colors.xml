@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2e7d32</color>
-    <color name="colorPrimaryDark">#1b5e20</color>
-    <color name="colorAccent">#0d4a06</color>
+    <color name="colorPrimary">#d52d32</color>
+    <color name="colorPrimaryDark">#ac1f1f</color>
+    <color name="colorAccent">#0d0d0d</color>
+
     <color name="colorTexto">#000000</color>
     <drawable name="transperent_color">#00000000</drawable>
 
@@ -17,4 +18,9 @@
 
     <color name="fondoprincipal">#978e8e</color>
     <color name="fondo">#000000</color>
+
+
+    <color name="fnd_Titulos">#b5d52d32</color>
+
+
 </resources>

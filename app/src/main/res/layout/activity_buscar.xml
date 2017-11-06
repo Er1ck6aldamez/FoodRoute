@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/fondoprincipal"
+
 
 
 android:padding="20dp"
@@ -76,7 +76,7 @@ android:padding="20dp"
                     android:inputType="numberDecimal"
                     android:textColor="@color/clr_Itm_Padre"
 
-                    android:backgroundTint="@color/clr_divider_Hijo"
+                    android:backgroundTint="@color/colorPrimaryDark"
                     />
 
             </LinearLayout>
@@ -103,7 +103,7 @@ android:padding="20dp"
                     android:id="@+id/spnrTipoComida"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/clr_divider_Hijo"
+                    android:backgroundTint="@color/colorPrimaryDark"
                     android:textColor="@color/clr_Letra"
                     />
             </LinearLayout>
@@ -139,7 +139,7 @@ android:padding="20dp"
                         android:layout_weight="1"
                         android:text="@string/txtEfectivo"
                         android:textColor="@color/clr_Itm_Padre"
-                        android:buttonTint="@color/clr_divider_Hijo"
+                        android:buttonTint="@color/colorPrimaryDark"
                         />
 
                     <RadioButton
@@ -149,7 +149,7 @@ android:padding="20dp"
                         android:layout_weight="1"
                         android:textColor="@color/clr_Itm_Padre"
                         android:text="@string/txtTarjeta"
-                        android:buttonTint="@color/clr_divider_Hijo"
+                        android:buttonTint="@color/colorPrimaryDark"
                         />
 
                 </RadioGroup>
@@ -162,7 +162,7 @@ android:padding="20dp"
                 android:layout_gravity="right"
                 android:padding="10dp"
                 android:textSize="15dp"
-                android:background="@drawable/ic_vbuscar"
+                android:background="@drawable/ic_buscar"
                 android:layout_marginBottom="30dp"
                 />
         </LinearLayout>

@@ -20,4 +20,7 @@
     <string name="txtActualizado">Información actualizada a 20/10/2017</string>
     <string name="title_activity_maps">Mapa</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

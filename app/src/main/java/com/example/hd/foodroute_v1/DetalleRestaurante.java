@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.github.snowdream.android.widget.SmartImageView;
 import com.loopj.android.http.AsyncHttpClient;
@@ -46,8 +47,18 @@ public class DetalleRestaurante extends AppCompatActivity {
 
         setContentView(R.layout.activity_detalle_restaurante);
         //flecha atras
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+       ActionBar actionBar = getSupportActionBar();
+         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        /*nuevo
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null )
+            getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        */
+
+
 
         ruta="https://foodroute.000webhostapp.com/proyecto/obtener_restaurantes_por_nombre.php?nombre="+Datos;
 
@@ -65,8 +76,8 @@ public class DetalleRestaurante extends AppCompatActivity {
         this.telefono = (TextView) findViewById(R.id.txtTelefono);
         this.formaPago = (TextView) findViewById(R.id.txtFormaPago);
 
-        this.btnGeo = (Button) findViewById(R.id.btnGeolocalizacion);
-        this.btnTel = (Button) findViewById(R.id.btnTelfono);
+        this.btnGeo = (Button) findViewById(R.id.btn_geolocalizacion);
+        this.btnTel = (Button) findViewById(R.id.btn_llamar);
 
         comedor=new DatosRestaurantes();
 
@@ -83,7 +94,7 @@ public class DetalleRestaurante extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent numero = new Intent(Intent.ACTION_DIAL);
-                numero.setData(Uri.parse("tel:"+telefono.getText()+""));
+                numero.setData(Uri.parse("tel:" + telefono.getText() + ""));
                 startActivity(numero);
             }
         });
@@ -106,6 +117,7 @@ public class DetalleRestaurante extends AppCompatActivity {
         }
 
     }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -195,6 +207,13 @@ public class DetalleRestaurante extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         finish();
+        return true;
+    }
+
+    public boolean validarTelefono(){
+        if (telefono.getText().equals("-")){
+            btnTel.isEnabled();
+        }
         return true;
     }
 }

@@ -22,8 +22,8 @@
         android:paddingTop="2dp"
         android:divider="@color/clr_divider_padre"
         android:dividerHeight="2dp"
-        android:listSelector="@color/clr_Itm_Padre"
-        android:childDivider="@color/clr_divider_Hijo"
+        android:listSelector="@color/fnd_Titulos"
+        android:childDivider="@color/colorPrimaryDark"
 
 
         />
