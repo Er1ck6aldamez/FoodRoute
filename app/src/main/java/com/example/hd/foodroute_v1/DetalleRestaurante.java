@@ -1,20 +1,19 @@
 package com.example.hd.foodroute_v1;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.github.snowdream.android.widget.SmartImageView;
 import com.loopj.android.http.AsyncHttpClient;
@@ -48,8 +47,14 @@ public class DetalleRestaurante extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_detalle_restaurante);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.htab_toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //flecha atras
-       ActionBar actionBar = getSupportActionBar();
+      // ActionBar actionBar = getSupportActionBar();
         //actionBar.setDisplayHomeAsUpEnabled(true);
 
         /*nuevo
