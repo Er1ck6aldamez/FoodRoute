@@ -221,6 +221,8 @@ public class DetalleRestaurante extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }else{
+
+
                     Toast.makeText(DetalleRestaurante.this,"Error",Toast.LENGTH_SHORT).show();
                 }
             }
