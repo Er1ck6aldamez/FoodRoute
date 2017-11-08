@@ -3,11 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.hd.foodroute_v1.Principal">
 
-    <item
-        android:id="@+id/opcDos"
-        android:orderInCategory="100"
-        android:title="@string/borrar_historial"
-        app:showAsAction="never" />
+
 
 
     <item
