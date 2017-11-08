@@ -19,7 +19,7 @@ import Modelo.LugaresVisitados;
  */
 
 public class AdaptadorHistorial extends CursorAdapter {
-
+    private int correlativo=0;
 
 
     public AdaptadorHistorial(Context context, Cursor c) {
@@ -35,6 +35,7 @@ public class AdaptadorHistorial extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        correlativo++;
 
         TextView Nombre = (TextView) view.findViewById(R.id.txtNombreRest);
         TextView HoraA = (TextView) view.findViewById(R.id.txtHora);
@@ -48,9 +49,7 @@ public class AdaptadorHistorial extends CursorAdapter {
         Nombre.setText(nombre);
         HoraA.setText("Abre : "+horaA);
         HoraC.setText("Cierra : "+horaC);
-        Correlativo.setText(String.valueOf(TbHistorial.correlativo++));
-
-
+        Correlativo.setText(String.valueOf(correlativo));
 
     }
 }
