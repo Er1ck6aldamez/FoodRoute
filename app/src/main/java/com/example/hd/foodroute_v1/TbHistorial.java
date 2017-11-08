@@ -27,6 +27,7 @@ public class TbHistorial extends Fragment{
     private AdaptadorHistorial adaptadorHistorial;
     private HistorialDBHelper historialDBHelper;
     private ImageView fondo;
+    public static int correlativo = 0;
 
     public TbHistorial(){
 
@@ -43,6 +44,7 @@ public class TbHistorial extends Fragment{
         lstHistorial=(ListView)rootView.findViewById(R.id.lstHistorial);
         fondo=(ImageView)rootView.findViewById(R.id.fondoHistorial);
         adaptadorHistorial=new AdaptadorHistorial(getActivity(),null);
+
 
         lstHistorial.setAdapter(adaptadorHistorial);
 

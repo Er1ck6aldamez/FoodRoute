@@ -9,6 +9,7 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import com.example.hd.foodroute_v1.R;
+import com.example.hd.foodroute_v1.TbHistorial;
 
 import Modelo.Lugares;
 import Modelo.LugaresVisitados;
@@ -18,6 +19,9 @@ import Modelo.LugaresVisitados;
  */
 
 public class AdaptadorHistorial extends CursorAdapter {
+
+
+
     public AdaptadorHistorial(Context context, Cursor c) {
         super(context, c, 0);
     }
@@ -35,13 +39,18 @@ public class AdaptadorHistorial extends CursorAdapter {
         TextView Nombre = (TextView) view.findViewById(R.id.txtNombreRest);
         TextView HoraA = (TextView) view.findViewById(R.id.txtHora);
         TextView HoraC = (TextView) view.findViewById(R.id.txtHoraCierre);
+        TextView Correlativo = (TextView) view.findViewById(R.id.txtCorrelativo_);
 
         String nombre=cursor.getString(cursor.getColumnIndex(LugaresVisitados.NOTES.NOMBRE_COL));
         String horaA=cursor.getString(cursor.getColumnIndex(LugaresVisitados.NOTES.HORAAPE_COL));
         String horaC=cursor.getString(cursor.getColumnIndex(LugaresVisitados.NOTES.HORACIE_COL));
 
         Nombre.setText(nombre);
-        HoraA.setText(horaA);
-        HoraC.setText(horaC);
+        HoraA.setText("Abre : "+horaA);
+        HoraC.setText("Cierra : "+horaC);
+        Correlativo.setText(String.valueOf(TbHistorial.correlativo++));
+
+
+
     }
 }
