@@ -25,7 +25,7 @@ import Modelo.Lugares;
  */
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private static List<Sugerencias> lstSugerencias;
+    public static List<Sugerencias> lstSugerencias;
     public static boolean verdad=false;
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -94,6 +94,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return lstSugerencias.size();
+        return  lstSugerencias == null ? 0 : lstSugerencias.size();
     }
 }

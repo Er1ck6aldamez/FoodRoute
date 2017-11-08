@@ -43,6 +43,7 @@ public class TbRestaurantes extends Fragment{
     private AdaptadorExpandible listAdapter;
     private ExpandableListView simpleExpandableListView;
     private ProgressBar prgCircular;
+    private int cargados=0;
 
     private SwipeRefreshLayout swipeContainer;
 
@@ -91,7 +92,11 @@ public class TbRestaurantes extends Fragment{
                 // Your code to refresh the list here.
                 // Make sure you call swipeContainer.setRefreshing(false)
                 // once the network request has completed successfully.
-                //deptList=new ArrayList<GroupInfo>();
+                simpleExpandableListView.setEnabled(false);
+                cargados=0;
+                recargar=true;
+                //subjects = new LinkedHashMap<String, GroupInfo>();
+                //deptList = new ArrayList<GroupInfo>();
                 loadData();
             }
         });
@@ -173,7 +178,9 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida a la carta",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        cargados++;
                         recargar=true;
+                        cargando();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -188,7 +195,9 @@ public class TbRestaurantes extends Fragment{
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);recargar=true;
+                cargados++;
                 recargar=true;
+                cargando();
             }
         });
 
@@ -205,7 +214,9 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida mexicana",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        cargados++;
                         recargar=true;
+                        cargando();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -220,7 +231,9 @@ public class TbRestaurantes extends Fragment{
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
+                cargados++;
                 recargar=true;
+                cargando();
             }
         });
 
@@ -237,7 +250,9 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida a la vista",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        cargados++;
                         recargar=true;
+                        cargando();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -252,7 +267,9 @@ public class TbRestaurantes extends Fragment{
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
+                cargados++;
                 recargar=true;
+                cargando();
             }
         });
 
@@ -269,7 +286,9 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida a la parrilla",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        cargados++;
                         recargar=true;
+                        cargando();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -284,7 +303,9 @@ public class TbRestaurantes extends Fragment{
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
+                cargados++;
                 recargar=true;
+                cargando();
             }
         });
 
@@ -301,7 +322,9 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida tradicional",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        cargados++;
                         recargar=true;
+                        cargando();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -316,7 +339,9 @@ public class TbRestaurantes extends Fragment{
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 //simpleExpandableListView.setVisibility(View.VISIBLE);
+                cargados++;
                 recargar=true;
+                cargando();
             }
         });
 
@@ -334,7 +359,9 @@ public class TbRestaurantes extends Fragment{
                             addProduct("Comida rápida",jsonArray.getJSONObject(i).getString("Nombre"),jsonArray.getJSONObject(i).getString("latitud"),jsonArray.getJSONObject(i).getString("longitud"));
                         }
                         listAdapter.notifyDataSetChanged();
+                        cargados++;
                         recargar=true;
+                        cargando();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -349,16 +376,18 @@ public class TbRestaurantes extends Fragment{
                 listAdapter.notifyDataSetChanged();
                 prgCircular.setVisibility(View.INVISIBLE);
                 simpleExpandableListView.setVisibility(View.VISIBLE);
+                cargados++;
                 recargar=true;
+                cargando();
             }
         });
 
-        /*addProduct("Comida mexicana","PolyMorphism");
-        addProduct("Comida mexicana","Collections");
+    }
 
-        addProduct("Comida a la vista","PolyMorphism");
-        addProduct("Comida a la vista","Collections");*/
-        swipeContainer.setRefreshing(false);
+    private void cargando(){
+        if(cargados==6)
+            simpleExpandableListView.setEnabled(true);
+            swipeContainer.setRefreshing(false);
     }
 
     //here we maintain our products in various departments
