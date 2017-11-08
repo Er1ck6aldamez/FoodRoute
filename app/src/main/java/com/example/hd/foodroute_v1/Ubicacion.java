@@ -168,7 +168,7 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
                                        mLastKnownLocation.getLongitude());
                                activado=true;
                             }else{
-                                AlertNoGps();
+                                //AlertNoGps();
                             }
 
                         } else {
@@ -236,7 +236,6 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
         }
         try {
             if (mLocationPermissionGranted) {
-                miUbicacion();
                 //mMap.setMyLocationEnabled(true);
                 //mMap.getUiSettings().setMyLocationButtonEnabled(true);
             } else {
@@ -258,6 +257,7 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
         }
         marcador = mMap.addMarker(new MarkerOptions().position(coordenadas).title("Mi posición actual"));
         mMap.animateCamera(miPosicion);
+        contador++;
     }
 
     private void actualizarUbicacion(Location location) {
@@ -287,7 +287,9 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
 
         @Override
         public void onProviderDisabled(String s) {
-
+            if(contador>0) {
+                AlertNoGps();
+            }
         }
     };
 
@@ -298,7 +300,7 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
             return;
         }
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            //AlertNoGps();
+            AlertNoGps();
         }
 
         mFusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -313,7 +315,7 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
             }
         });
         //actualizarUbicacion(location);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,30000,0, locListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,20000,0, locListener);
     }
     private void AlertNoGps() {
         if(!((Activity) this).isFinishing()&& !activado) {

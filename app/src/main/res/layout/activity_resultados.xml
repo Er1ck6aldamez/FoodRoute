@@ -13,7 +13,6 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lstSugerencias"
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:paddingBottom="18sp"
         android:visibility="invisible"
