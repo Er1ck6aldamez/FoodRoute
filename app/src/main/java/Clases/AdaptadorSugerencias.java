@@ -39,13 +39,11 @@ public class AdaptadorSugerencias extends ArrayAdapter<Sugerencias> {
         }
         if(suge!=null){
             TextView lblNombre=(TextView) convertView.findViewById(R.id.txtNombrePlatillo);
-            TextView lblLugar=(TextView) convertView.findViewById(R.id.txtLugar);
             TextView lblPrecio=(TextView) convertView.findViewById(R.id.txtPrecio);
             SmartImageView img=(SmartImageView) convertView.findViewById(R.id.imgSugerencia);
 
-            if(lblNombre!=null&&lblLugar!=null&&lblPrecio!=null){
+            if(lblNombre!=null&&lblPrecio!=null){
                 lblNombre.setText(suge.getNombrePlatillo());
-                lblLugar.setText(suge.getLugar());
                 lblPrecio.setText("$"+suge.getPrecio());
                 Rect rect=new Rect(img.getLeft(),img.getTop(),img.getRight(),img.getBottom());
                 img.setImageUrl(TbInicio.imgurl+suge.getImagen(),rect);

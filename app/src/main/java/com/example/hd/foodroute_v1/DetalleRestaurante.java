@@ -6,12 +6,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +45,9 @@ public class DetalleRestaurante extends AppCompatActivity {
 
     private SmartImageView logo;
     private TextView nombre, direccion, especialidad, horaApe, horaCie, formaPago, servDomicilio, telefono;
+    private ProgressBar prgCircular;
+    private LinearLayout datosMostrar;
+    private AppBarLayout todo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +90,10 @@ public class DetalleRestaurante extends AppCompatActivity {
         this.telefono = (TextView) findViewById(R.id.txtTelefono);
         this.formaPago = (TextView) findViewById(R.id.txtFormaPago);
 
+        prgCircular = (ProgressBar) findViewById(R.id.prgCircular);
+        datosMostrar = (LinearLayout)  findViewById(R.id.contenido_datos);
+        todo = (AppBarLayout) findViewById(R.id.htab_appbar);
+
         this.btnGeo = (Button) findViewById(R.id.btn_geolocalizacion);
         this.btnTel = (Button) findViewById(R.id.btn_llamar);
 
@@ -113,7 +124,12 @@ public class DetalleRestaurante extends AppCompatActivity {
         if(savedInstanceState==null){
             comedor=new DatosRestaurantes();
             CargarDatos();
+
         }else{
+            prgCircular.setVisibility(View.INVISIBLE);
+            datosMostrar.setVisibility(View.VISIBLE);
+            todo.setVisibility(View.VISIBLE);
+
             comedor=(DatosRestaurantes) savedInstanceState.getParcelable("restaurante");
             nombre.setText(comedor.getNombre());
             direccion.setText(comedor.getDireccion());
@@ -144,6 +160,10 @@ public class DetalleRestaurante extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
+
+                    prgCircular.setVisibility(View.INVISIBLE);
+                    datosMostrar.setVisibility(View.VISIBLE);
+                    todo.setVisibility(View.VISIBLE);
 
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));

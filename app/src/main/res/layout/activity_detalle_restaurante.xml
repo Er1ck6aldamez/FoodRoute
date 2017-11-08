@@ -8,8 +8,15 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <ProgressBar
+        android:id="@+id/prgCircular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/htab_appbar"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -30,7 +37,6 @@
                 android:id="@+id/logoRestaurante"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:background="#FFF"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
@@ -106,6 +112,14 @@
         >
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/contenido_datos"
+            android:visibility="invisible"
+            >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +133,6 @@
                     android:paddingTop="10dp">
 
                     <Button
-
                         android:id="@+id/btn_llamar"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -457,8 +470,26 @@
 
             </LinearLayout>
 
+                <Button
+                    android:id="@+id/btn_todos_los_platillos"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#ef9a9a"
+                    android:drawableLeft="@android:drawable/ic_menu_sort_by_size"
+                    android:drawablePadding="8dp"
+                    android:elevation="2dp"
+                    android:paddingRight="20dp"
+                    android:text="Ver todos los platillos"
+                    android:textColor="@android:color/white"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    />
+
             </LinearLayout>
 
+        </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
