@@ -175,7 +175,7 @@ public class HistorialDBHelper extends SQLiteOpenHelper {
     }
 
     // Borrar todas Nota
-    public void deleteAll(Lugares note) {
+    public void deleteAll() {
 
         // 1. Obtenemos una reference de la BD con permisos de escritura
         SQLiteDatabase db = this.getWritableDatabase();

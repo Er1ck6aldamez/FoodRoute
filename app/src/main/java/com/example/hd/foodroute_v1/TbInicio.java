@@ -43,7 +43,7 @@ public class TbInicio extends Fragment{
     //Declaracion de variables
     private RecyclerView lstSugerencias;
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
-    private ArrayList<Sugerencias> array;
+    private static ArrayList<Sugerencias> array;
     private MyAdapter adaptador;
     private ProgressBar prgCircular;
     private TextView lblActualizado;
@@ -77,6 +77,7 @@ public class TbInicio extends Fragment{
 
             CargarDatos();
         }else{
+
             array = (ArrayList<Sugerencias>) savedInstanceState.getSerializable("listSugerencias");
             adaptador=new MyAdapter(array);
 
@@ -93,6 +94,7 @@ public class TbInicio extends Fragment{
     public void onSaveInstanceState(Bundle outState) {
 
         outState.putParcelableArrayList("listSugerencias", array);
+
         super.onSaveInstanceState(outState);
     }
 
