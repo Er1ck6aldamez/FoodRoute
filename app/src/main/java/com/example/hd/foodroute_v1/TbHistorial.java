@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -27,6 +28,7 @@ public class TbHistorial extends Fragment{
     private AdaptadorHistorial adaptadorHistorial;
     private HistorialDBHelper historialDBHelper;
     private ImageView fondo;
+    private Button btnBorrar;
 
     public TbHistorial(){
 
@@ -43,10 +45,19 @@ public class TbHistorial extends Fragment{
         lstHistorial=(ListView)rootView.findViewById(R.id.lstHistorial);
         fondo=(ImageView)rootView.findViewById(R.id.fondoHistorial);
         adaptadorHistorial=new AdaptadorHistorial(getActivity(),null);
+        btnBorrar=(Button)rootView.findViewById(R.id.btnBorrar);
 
         lstHistorial.setAdapter(adaptadorHistorial);
 
         historialDBHelper=new HistorialDBHelper(getActivity());
+
+        btnBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                historialDBHelper.deleteAll();
+                loadLawyers();
+            }
+        });
 
         // Carga de datos
         loadLawyers();
@@ -73,10 +84,14 @@ public class TbHistorial extends Fragment{
                 adaptadorHistorial.swapCursor(cursor);
             } else {
                 // Mostrar empty state
+                adaptadorHistorial.swapCursor(cursor);
                 fondo.setVisibility(View.VISIBLE);
+                btnBorrar.setVisibility(View.INVISIBLE);
             }
         }
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

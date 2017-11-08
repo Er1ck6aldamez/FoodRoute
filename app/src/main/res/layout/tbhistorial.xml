@@ -11,9 +11,18 @@
     <ListView
         android:id="@+id/lstHistorial"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="45dp"
+        >
 
     </ListView>
+    <Button
+        android:id="@+id/btnBorrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/borrar_historial"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
     <ImageView
         android:id="@+id/fondoHistorial"
         android:layout_width="match_parent"
