@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hd.foodroute_v1.AllPlatillosRestaurante">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lstTodosPlatillos"
+        android:layout_width="match_parent"
+        android:paddingBottom="18sp"
+        android:visibility="invisible"
+        android:layout_height="match_parent"/>
+    <ProgressBar
+        android:id="@+id/prgCircular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/lblPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/txtActualizado"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

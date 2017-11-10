@@ -35,7 +35,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class DetalleRestaurante extends AppCompatActivity {
 
-    private Button btnGeo, btnTel;
+    private Button btnGeo, btnTel, btnTodosPlatillos;
     public static String Datos;
     private String ruta;
     private DatosRestaurantes comedor;
@@ -49,6 +49,8 @@ public class DetalleRestaurante extends AppCompatActivity {
     private LinearLayout datosMostrar;
     private AppBarLayout todo;
 
+
+    public static String nombreRes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +98,7 @@ public class DetalleRestaurante extends AppCompatActivity {
 
         this.btnGeo = (Button) findViewById(R.id.btn_geolocalizacion);
         this.btnTel = (Button) findViewById(R.id.btn_llamar);
+        this.btnTodosPlatillos = (Button) findViewById(R.id.btn_todos_los_platillos);
 
         comedor=new DatosRestaurantes();
 
@@ -121,6 +124,16 @@ public class DetalleRestaurante extends AppCompatActivity {
             }
         });
 
+
+        btnTodosPlatillos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tplatos = new Intent(DetalleRestaurante.this, AllPlatillosRestaurante.class);
+                startActivity(tplatos);
+            }
+        });
+
+
         if(savedInstanceState==null){
             comedor=new DatosRestaurantes();
             CargarDatos();
@@ -143,6 +156,7 @@ public class DetalleRestaurante extends AppCompatActivity {
             logo.setImageUrl(imgurl+comedor.getImagen(),rect);
         }
 
+        nombreRes = nombre.toString();
     }
 
 
