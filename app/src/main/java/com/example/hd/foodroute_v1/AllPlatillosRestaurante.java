@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import Clases.MyAdapter;
+import Clases.OtroAdaptador;
 import Clases.Sugerencias;
 import cz.msebera.android.httpclient.Header;
 
@@ -33,7 +34,7 @@ public class AllPlatillosRestaurante extends AppCompatActivity {
     private RecyclerView lstTodosPlatillos;
     public static String imgurl="https://foodroute.000webhostapp.com/img/";
     private static ArrayList<Sugerencias> array;
-    private MyAdapter adaptador;
+    private OtroAdaptador adaptador;
     private ProgressBar prgCircular;
     private TextView lblActualizado;
 
@@ -53,13 +54,13 @@ public class AllPlatillosRestaurante extends AppCompatActivity {
 
         if(savedInstanceState==null) {
             array=new ArrayList<>();
-            adaptador=new MyAdapter(array);
+            adaptador=new OtroAdaptador(array);
 
             CargarDatos();
         }else{
 
             array = (ArrayList<Sugerencias>) savedInstanceState.getSerializable("lstToPlatillosG");
-            adaptador=new MyAdapter(array);
+            adaptador=new OtroAdaptador(array);
 
             lstTodosPlatillos.setVisibility(View.VISIBLE);
             prgCircular.setVisibility(View.INVISIBLE);
@@ -86,7 +87,7 @@ public class AllPlatillosRestaurante extends AppCompatActivity {
     private void CargarDatos() {
 
         AsyncHttpClient client=new AsyncHttpClient();
-        client.get("https://foodroute.000webhostapp.com/proyecto/obtener_comidas_restaurantes.php?nombre="+DetalleRestaurante.nombreRes, new AsyncHttpResponseHandler() {
+        client.get("https://foodroute.000webhostapp.com/proyecto/obtener_comidas_restaurante.php?nombre="+DetalleRestaurante.Datos, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
