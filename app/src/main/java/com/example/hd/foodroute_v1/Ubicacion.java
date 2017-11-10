@@ -11,6 +11,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -66,6 +68,7 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
     private static final String TAG = Ubicacion.class.getSimpleName();
     private CameraPosition mCameraPosition;
     private boolean activado=false;
+    CoordinatorLayout coordinatorLayout;
 
     // The geographical location where the device is currently located. That is, the last-known
     // location retrieved by the Fused Location Provider.
@@ -86,7 +89,7 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
             mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
         }
 
-
+        coordinatorLayout=(CoordinatorLayout)findViewById(R.id.coordinator);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map_container);
         mapFragment.getMapAsync(this);
@@ -484,7 +487,9 @@ public class Ubicacion extends AppCompatActivity implements OnMapReadyCallback,A
                     lineOptions.color(Color.rgb(0, 0, 255));
                 }
             }else{
-                Toast.makeText(Ubicacion.this,"Active los datos o el wifi!", Toast.LENGTH_LONG).show();
+                Toast.makeText(Ubicacion.this,"Sin conexión a internte",Toast.LENGTH_SHORT).show();
+                /*Snackbar snackbar=Snackbar.make(coordinatorLayout,"Sin conexión a internet",Snackbar.LENGTH_INDEFINITE).setAction("Action",null);
+                snackbar.show();*/
             }
             if(lineOptions!=null) {
 

@@ -174,11 +174,6 @@ public class DetalleRestaurante extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if(statusCode==200){
-
-                    prgCircular.setVisibility(View.INVISIBLE);
-                    datosMostrar.setVisibility(View.VISIBLE);
-                    todo.setVisibility(View.VISIBLE);
-
                     try {
                         JSONObject json=new JSONObject(new String(responseBody));
                         String estado=json.getString("estado");
@@ -226,6 +221,10 @@ public class DetalleRestaurante extends AppCompatActivity {
                                 Rect rect=new Rect(logo.getLeft(),logo.getTop(),logo.getRight(),logo.getBottom());
                                 logo.setImageUrl(imgurl+jsonArray.getJSONObject(i).getString("Imagen"),rect);
                                 comedor.setImagen(jsonArray.getJSONObject(i).getString("Imagen"));
+
+                                prgCircular.setVisibility(View.INVISIBLE);
+                                datosMostrar.setVisibility(View.VISIBLE);
+                                todo.setVisibility(View.VISIBLE);
 
                             }
                         }else{
