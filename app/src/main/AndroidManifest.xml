@@ -42,7 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Opcionest" />
         <activity android:name=".Buscar" />
         <activity android:name=".Resultados" />
         <activity android:name=".Ubicacion" />
