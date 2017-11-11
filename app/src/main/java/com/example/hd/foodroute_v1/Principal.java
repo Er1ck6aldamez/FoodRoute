@@ -1,5 +1,6 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -55,6 +56,7 @@ public class Principal extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
@@ -79,7 +81,7 @@ public class Principal extends AppCompatActivity {
         switch (id){
             case R.id.buscar:
                 Intent prueba = new Intent(Principal.this, Buscar.class);
-                startActivity(prueba);
+                startActivityForResult(prueba,7);
                 //Toast.makeText(this,"Buscar Comida",Toast.LENGTH_SHORT).show();
                 return true;
         }
@@ -90,7 +92,7 @@ public class Principal extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public static class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -133,6 +135,26 @@ public class Principal extends AppCompatActivity {
                     return "HISTORIAL";
             }
             return null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 7) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data.hasExtra("home")) {
+                    mViewPager.setCurrentItem(0);
+                }
+
+                if (data.hasExtra("especialidad")) {
+                    mViewPager.setCurrentItem(1);
+                }
+
+                if (data.hasExtra("historial")) {
+                    mViewPager.setCurrentItem(2);
+                }
+            }
         }
     }
 }

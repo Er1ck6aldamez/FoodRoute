@@ -29,6 +29,7 @@
             android:layout_height="256dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
+            app:scrimAnimationDuration="300"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:titleEnabled="false">
 
@@ -468,8 +469,6 @@
                         android:textSize="16sp" />
                 </LinearLayout>
 
-            </LinearLayout>
-
                 <Button
                     android:id="@+id/btn_todos_los_platillos"
                     android:layout_width="match_parent"
@@ -483,15 +482,19 @@
                     android:paddingRight="20dp"
                     android:text="Ver todos los platillos"
                     android:textColor="@android:color/white"
+                    android:layout_gravity="bottom"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
                     />
 
             </LinearLayout>
 
+            </LinearLayout>
+
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
 
 </android.support.design.widget.CoordinatorLayout>
 

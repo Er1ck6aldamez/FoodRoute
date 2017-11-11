@@ -138,15 +138,14 @@
                 android:id="@+id/btnBuscar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="right"
+                android:layout_gravity="left"
                 android:padding="10dp"
+                android:layout_marginTop="30dp"
                 android:textSize="15dp"
                 android:background="@drawable/ic_buscar"
                 android:layout_marginBottom="30dp"
                 />
         </LinearLayout>
-
-
 
 </LinearLayout>
     </ScrollView>

@@ -21,6 +21,10 @@
     <string name="title_activity_maps">Mapa</string>
     <string name="borrar_historial">Borrar historial</string>
 
+    <string name="bn_inicio">Inicio</string>
+    <string name="bn_especialidad">Especialidad</string>
+    <string name="bn_historial">Historial</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

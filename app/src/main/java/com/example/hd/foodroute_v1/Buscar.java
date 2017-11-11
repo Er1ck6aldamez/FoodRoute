@@ -1,8 +1,10 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -76,7 +78,7 @@ public class Buscar extends AppCompatActivity {
 
                     Resultados.presupuesto=txtPresupuesto.getText().toString();
                     Intent res = new Intent(Buscar.this, Resultados.class);
-                    startActivity(res);
+                    startActivityForResult(res,2);
                 }
             }
         });
@@ -141,5 +143,37 @@ public class Buscar extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==2){
+            if (resultCode== Activity.RESULT_OK){
+                if(data.hasExtra("home")){
+
+                    Intent home2 = new Intent();
+                    home2.putExtra("home",true);
+                    setResult(Activity.RESULT_OK,home2);
+                    finish();
+                }
+
+                if(data.hasExtra("especialidad")){
+
+                    Intent espe = new Intent();
+                    espe.putExtra("especialidad",true);
+                    setResult(Activity.RESULT_OK,espe);
+                    finish();
+                }
+
+                if(data.hasExtra("historial")){
+
+                    Intent historial = new Intent();
+                    historial.putExtra("historial",true);
+                    setResult(Activity.RESULT_OK,historial);
+                    finish();
+                }
+            }
+
+        }
+
+    }
 }
 

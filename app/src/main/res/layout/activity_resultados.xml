@@ -4,29 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.example.hd.foodroute_v1.Resultados">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lstSugerencias"
         android:layout_width="match_parent"
-        android:paddingBottom="18sp"
+        android:paddingBottom="74sp"
         android:visibility="invisible"
         android:layout_height="match_parent"/>
+
     <ProgressBar
         android:id="@+id/prgCircular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_centerInParent="true"/>
 
     <TextView
+        android:background="@color/fnd_Titulos"
         android:id="@+id/lblPrecio"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/txtActualizado"
         android:visibility="invisible"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:paddingBottom="60dp"
+
         android:layout_centerHorizontal="true"
         />
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"    >
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+
+</android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

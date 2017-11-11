@@ -1,8 +1,13 @@
 package com.example.hd.foodroute_v1;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +15,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +23,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.design.widget.BottomNavigationView;
+
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -24,6 +32,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xml.sax.Parser;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -50,6 +59,10 @@ public class Resultados extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados);
+
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         lblActualizado=(TextView)findViewById(R.id.lblPrecio);
         lstSugerencias = (RecyclerView)findViewById(R.id.lstSugerencias);
@@ -80,6 +93,46 @@ public class Resultados extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+
+                    Intent home = new Intent();
+                    home.putExtra("home",true);
+                    setResult(Activity.RESULT_OK,home);
+                    finish();
+
+                    return true;
+                case R.id.navigation_dashboard:
+
+                    Intent espe = new Intent();
+                    espe.putExtra("especialidad",true);
+                    setResult(Activity.RESULT_OK,espe);
+                    finish();
+
+                    return true;
+                case R.id.navigation_notifications:
+
+                    Intent hist = new Intent();
+                    hist.putExtra("historial",true);
+                    setResult(Activity.RESULT_OK,hist);
+                    finish();
+
+                    return true;
+            }
+            return false;
+        }
+    };
+
+
+
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
