@@ -134,17 +134,25 @@
                 </RadioGroup>
             </LinearLayout>
 
+
             <Button
                 android:id="@+id/btnBuscar"
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:padding="10dp"
-                android:layout_marginTop="30dp"
-                android:textSize="15dp"
-                android:background="@drawable/ic_buscar"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:drawableLeft="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:elevation="2dp"
+                android:paddingRight="20dp"
+                android:text="Buscar"
+                android:textColor="@android:color/white"
+                android:layout_gravity="bottom"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
                 />
+
         </LinearLayout>
 
 </LinearLayout>
