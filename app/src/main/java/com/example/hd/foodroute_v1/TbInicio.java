@@ -67,8 +67,7 @@ public class TbInicio extends Fragment{
         lstSugerencias.setHasFixedSize(true);
         imagen_señal = (ImageView)getView().findViewById(R.id.img_señal);
 
-
-        LinearLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+        LinearLayoutManager layoutManager = new GridLayoutManager(getContext(),getResources().getInteger(R.integer.colInicio));
         lstSugerencias.setLayoutManager(layoutManager);
 
         if(savedInstanceState==null) {
@@ -146,7 +145,7 @@ public class TbInicio extends Fragment{
     public void Dialog() {
         AlertDialog.Builder Alerta = new AlertDialog.Builder(getContext());
         Alerta.setTitle("Fallo al cargar Sugerencias").
-        setMessage("Volever a cargar datos").
+        setMessage("Volver a cargar datos").
                 setIcon(R.drawable.warning).
         setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override

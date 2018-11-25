@@ -19,7 +19,7 @@
         android:layout_centerInParent="true"/>
 
     <ImageView
-        android:layout_margin="50dp"
+        android:layout_margin="80dp"
         android:id="@+id/img_señal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
