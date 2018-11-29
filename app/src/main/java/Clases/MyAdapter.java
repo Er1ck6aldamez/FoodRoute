@@ -122,7 +122,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         //holder.mTextView.setText(mDataSet[position]);
         holder.plato.setText(lstSugerencias.get(position).getNombrePlatillo());
         holder.precio.setText("$"+lstSugerencias.get(position).getPrecio());
-        if(Double.parseDouble(lstSugerencias.get(position).getPrecio())>=2.5){
+        if(Double.parseDouble(lstSugerencias.get(position).getPrecio())>=1.25){
             holder.pedir.setVisibility(View.VISIBLE);
         }else{
             holder.pedir.setVisibility(View.INVISIBLE);

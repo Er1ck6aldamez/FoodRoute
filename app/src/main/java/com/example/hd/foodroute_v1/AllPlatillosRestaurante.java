@@ -49,7 +49,7 @@ public class AllPlatillosRestaurante extends AppCompatActivity {
         prgCircular = (ProgressBar)findViewById(R.id.prgCircular);
         lstTodosPlatillos.setHasFixedSize(true);
 
-        LinearLayoutManager layoutManager = new GridLayoutManager(AllPlatillosRestaurante.this,2);
+        LinearLayoutManager layoutManager = new GridLayoutManager(AllPlatillosRestaurante.this,getResources().getInteger(R.integer.colInicio));
         lstTodosPlatillos.setLayoutManager(layoutManager);
 
         if(savedInstanceState==null) {

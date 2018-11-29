@@ -69,7 +69,7 @@ public class Resultados extends AppCompatActivity {
         prgCircular = (ProgressBar)findViewById(R.id.prgCircular);
         lstSugerencias.setHasFixedSize(true);
 
-        LinearLayoutManager layoutManager = new GridLayoutManager(this,2);
+        LinearLayoutManager layoutManager = new GridLayoutManager(this,getResources().getInteger(R.integer.colInicio));
         lstSugerencias.setLayoutManager(layoutManager);
         ruta="https://foodroute.000webhostapp.com/proyecto/obtener_comidas.php?especialidad="+tipo_comida+" && presupuesto="+presupuesto;
         ruta2="https://foodroute.000webhostapp.com/proyecto/obtener_comidas_efectivo.php?especialidad="+tipo_comida+" && presupuesto="+presupuesto;
