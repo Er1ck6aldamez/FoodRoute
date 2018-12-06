@@ -5,6 +5,7 @@
     <color name="colorAccent">#0d0d0d</color>
 
     <color name="colorTexto">#000000</color>
+    <color name="colorWhite">#ffffff</color>
     <drawable name="transperent_color">#00000000</drawable>
 
     <color name="tituloBuscar">#594d4d</color>

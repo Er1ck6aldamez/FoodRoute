@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hd.foodroute_v1.DetalleRestaurante;
+import com.example.hd.foodroute_v1.FullScreenDialog;
 import com.example.hd.foodroute_v1.R;
 import com.example.hd.foodroute_v1.TbInicio;
 import com.example.hd.foodroute_v1.Ubicacion;
@@ -41,7 +44,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(v.getContext(),lstSugerencias.get(position).getNombrePlatillo(),Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(v.getContext(),lstSugerencias.get(position).getNombrePlatillo(),Toast.LENGTH_SHORT).show();
+                        FullScreenDialog dialogo = new FullScreenDialog();
+                        FragmentActivity activity = (FragmentActivity) v.getContext();
+                        FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
+                        dialogo.show(ft, FullScreenDialog.TAG);
                     }
                 }).
                 setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
